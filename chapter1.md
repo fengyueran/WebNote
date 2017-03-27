@@ -27,7 +27,4 @@ $ npm install babel -g
 $ npm uninstall babel
 //卸载全局bebel
 $ npm uninstall babel -g
-
-
-
 ```
