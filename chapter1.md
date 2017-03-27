@@ -21,3 +21,9 @@ $ npm install babel
 //全局安装bebel
 $ npm install babel -g
 ```
+2) 卸载包 - npm uninstall packageName
+```
+//卸载bebel
+$ npm uninstall babel
+
+```
