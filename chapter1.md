@@ -1,5 +1,5 @@
 # node常用命令
-Node.js是JavaScript的一种运行环境，是对Google V8引擎进行的封装。是一个服务器端的javascript的解释器。在Node.js上开发时时常需要应用到别人写好的包，这就需要npm，即nodejs的包管理器（package manager），通过npm就能使用大家上传到npm官网上的代码。
+Node.js是JavaScript的一种运行环境，是对Google V8引擎进行的封装，是一个服务器端的javascript的解释器。在Node.js上开发时时常需要应用到别人写好的包，这就需要npm，即nodejs的包管理器（package manager），通过npm就能使用大家上传到npm官网上的代码。
 
 1. 显示node版本 - node -v
 
