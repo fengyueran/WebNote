@@ -23,7 +23,11 @@ $ npm install babel -g
 ```
 2) 卸载包 - npm uninstall packageName
 ```
-//卸载bebel
+//卸载当前工程bebel
 $ npm uninstall babel
+//卸载全局bebel
+$ npm uninstall babel -g
+
+
 
 ```
