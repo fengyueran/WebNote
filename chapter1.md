@@ -18,8 +18,13 @@ Node.js是JavaScript的一种运行环境，是对Google V8引擎进行的封装
 ```
 //当前工程安装bebel
 $ npm install babel
+
 //全局安装bebel
 $ npm install babel -g
+
+//安装某个版本
+$ npm install babel@1.6.0
+
 ```
 2) 卸载包 - npm uninstall packageName
 ```
@@ -30,5 +35,10 @@ $ npm uninstall babel -g
 ```
 3) 查看当前安装的包 - npm ls
 ```
+├─┬ babel-cli@6.24.0
+```
+4) 查看安装的包的信息  - npm info
+```
+$ npm info babel
 ├─┬ babel-cli@6.24.0
 ```
