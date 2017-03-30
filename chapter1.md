@@ -28,3 +28,7 @@ $ npm uninstall babel
 //卸载全局bebel
 $ npm uninstall babel -g
 ```
+3) 查看当前安装的包 - npm ls
+```
+├─┬ babel-cli@6.24.0
+```
