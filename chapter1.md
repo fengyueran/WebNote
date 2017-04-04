@@ -88,9 +88,47 @@ $ npm install babel --save-dev
 ```
 7) 检查更新  - npm outdated
 ```
-//查看babel的信息
+//查看过期信息
 $ npm outdated
 Package  Current  Wanted  Latest  Location
 gulp       3.0.0   3.9.1   3.9.1  cordova
 ```
+8) 更新包  - npm update
+
+9) 更新安装源  - npm update
+```
+//1.安装nrm
+$ npm install nrm --global
+//2.列出可用安装源
+$ nrm ls
+//*为当前安装源
+* npm ---- https://registry.npmjs.org/
+  cnpm --- http://r.cnpmjs.org/
+  taobao - https://registry.npm.taobao.org/
+  nj ----- https://registry.nodejitsu.com/
+  rednpm - http://registry.mirror.cqupt.edu.cn/
+  npmMirror  https://skimdb.npmjs.com/registry/
+  edunpm - http://registry.enpmjs.org/
+//3.测试安装源
+$ nrm test
+//时间越短越快
+* npm ---- 7348ms
+  cnpm --- 342ms
+  taobao - 458ms
+  nj ----- Fetch Error
+  rednpm - Fetch Error
+  npmMirror  2700ms
+  edunpm - Fetch Error
+//4.切换安装源
+$ nrm use sourceName
+
+```
+
+
+
+
+
+
+
+
 
