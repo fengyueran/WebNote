@@ -39,6 +39,7 @@ $ npm uninstall babel -g
 ```
 4) 查看安装的包的信息  - npm info
 ```
+//查看babel的信息
 $ npm info babel
 ├─┬ babel-cli@6.24.0
 ```
