@@ -71,8 +71,9 @@ $ npm init
 
 6) 安装包并保存到package.json文件  - npm install packageName --save
 ```
-//查看babel的信息
-$ npm info babel
-├─┬ babel-cli@6.24.0
+//安装underscore并保存该依赖到package.json
+$ npm install underscore --save
+//安装babel并保存babel到package.json中的开发依赖
+$ npm install babel --save-dev
 ```
 
