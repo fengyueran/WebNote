@@ -36,6 +36,10 @@ $ npm uninstall babel -g
 3) 查看当前安装的包 - npm ls
 ```
 ├─┬ babel-cli@6.24.0
+//查看安装的grep
+$ npm ls | grep gulp
+  ├─┬ gulp@3.0.0
+  │ ├─┬ gulp-util@1.1.1
 ```
 4) 查看安装的包的信息  - npm info
 ```
@@ -73,6 +77,8 @@ $ npm init
 ```
 //安装underscore并保存该依赖到package.json
 $ npm install underscore --save
+//删除underscore并从package.json中删除依赖
+$ npm uninstall underscore --save
 //安装babel并保存babel到package.json中的开发依赖
 $ npm install babel --save-dev
 ```
