@@ -43,3 +43,36 @@ $ npm uninstall babel -g
 $ npm info babel
 ├─┬ babel-cli@6.24.0
 ```
+5) 初始化package.json  - npm init
+```
+//根据回答创建package.json文件(这个文件描述了项目相关信息)
+$ npm init
+{
+  "name": "cordova",
+  "version": "1.0.0",
+  "description": "abc",
+  "main": "npm start",
+  //项目依赖
+  "dependencies": {
+    "underscore": "^1.8.3"
+  },
+  //项目开发时的依赖
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.24.0"
+  },
+  "scripts": {
+    "test": "npm start"
+  },
+  "author": "",
+  "license": "ISC"
+}
+```
+
+6) 安装包并保存到package.json文件  - npm install packageName --save
+```
+//查看babel的信息
+$ npm info babel
+├─┬ babel-cli@6.24.0
+```
+
