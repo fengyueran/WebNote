@@ -58,7 +58,11 @@ $ npm init
   "main": "npm start",
   //项目依赖
   "dependencies": {
+  //^表示版本更新时只能更新三位版本号的第二个数字(8)，~表示只能更新第三个数字(3)
+    "gulp": "~3.0.3"
     "underscore": "^1.8.3"
+    "forever": "*"
+
   },
   //项目开发时的依赖
   "devDependencies": {
