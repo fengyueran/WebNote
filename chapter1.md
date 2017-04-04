@@ -82,4 +82,11 @@ $ npm uninstall underscore --save
 //安装babel并保存babel到package.json中的开发依赖
 $ npm install babel --save-dev
 ```
+7) 检查更新  - npm outdated
+```
+//查看babel的信息
+$ npm outdated
+Package  Current  Wanted  Latest  Location
+gulp       3.0.0   3.9.1   3.9.1  cordova
+```
 
