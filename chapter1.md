@@ -129,11 +129,11 @@ npm允许在package.json文件里面，使用scripts字段定义脚本命令。
 {
   // ...
   "scripts": {
-    "startCordova": "node st.js"
+    "startCordova": "node startCordova.js"
   }
 }
 ```
-里面的scripts字段是一个对象。它的每一个属性，对应一段脚本。比如，startCordova命令对应的脚本是node startCordova.js
+里面的scripts字段是一个对象。它的每一个属性，对应一段脚本。比如，startCordova命令对应的脚本是node startCordova.js。命令行下使用npm run命令，就可以执行这段脚本。如：npm run startCordova 等于node startCordova。
 
 
 
