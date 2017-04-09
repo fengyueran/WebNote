@@ -123,7 +123,17 @@ $ nrm test
 $ nrm use sourceName
 
 ```
-
+#####3.npm脚本
+npm允许在package.json文件里面，使用scripts字段定义脚本命令。
+```
+{
+  // ...
+  "scripts": {
+    "startCordova": "node st.js"
+  }
+}
+```
+里面的scripts字段是一个对象。它的每一个属性，对应一段脚本。比如，startCordova命令对应的脚本是node startCordova.js
 
 
 
