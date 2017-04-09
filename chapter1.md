@@ -129,16 +129,38 @@ npm允许在package.json文件里面，使用scripts字段定义脚本命令。
 {
   // ...
   "scripts": {
-    "startCordova": "node startCordova.js"
+    "startCordova": "node serverCordova.js"
   }
 }
 ```
-里面的scripts字段是一个对象。它的每一个属性，对应一段脚本。比如，startCordova命令对应的脚本是node startCordova.js。命令行下使用npm run命令，就可以执行这段脚本。如：npm run startCordova 等于node startCordova。
+里面的scripts字段是一个对象。它的每一个属性，对应一段脚本。比如，startCordova命令对应的脚本是node serverCordova.js。命令行下使用npm run命令，就可以执行这段脚本。如：npm run startCordova 等于node startCordova。
 
 
+#####4.执行顺序
+如果 npm 脚本里面需要执行多个任务，那么需要明确它们的执行顺序。如果是并行执行（即同时的平行执行），可以使用&符号。
+```
+$ npm run script1.js & npm run script2.js
+```
+
+如果是继发执行（即只有前一个任务成功，才执行下一个任务），可以使用&&符号
+```
+$ npm run script1.js && npm run script2.js
+```
 
 
+#####5.默认值
+一般来说，npm 脚本由用户提供。但是，npm 对两个脚本提供了默认值。也就是说，这两个脚本不用定义，就可以直接使用。
+```
+"start": "node server.js"，
+"install": "node-gyp rebuild"
+```
+上面代码中，npm run start的默认值是node server.js，前提是项目根目录下有server.js这个脚本；npm run install的默认值是node-gyp rebuild，前提是项目根目录下有binding.gyp文件。
 
-
-
-
+#####6.简写形式
+四个常用的 npm 脚本有简写形式。
+```
+npm start是npm run start
+npm stop是npm run stop的简写
+npm test是npm run test的简写
+npm restart是npm run stop && npm run restart && npm run start的简写
+```
