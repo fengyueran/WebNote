@@ -23,6 +23,10 @@ npm install webpack --save-dev
 可以有三种途径
 
  - cli——即命令行形式，一般都会动过package.json中写入scripts字段的形式
+ ```
+ $ webpack entry.js bundle.js
+ ```
+ 
  - 配置文件webpack.config.js文件中写入字段，webpack在启动时会读取它，并依据其工作
    - webpack.config.dev - debug配置
    - webpack.config.prod - release配置
@@ -36,3 +40,6 @@ webpack-dev-server是一个小型的node.js Express服务器,为webpack打包生
 ```
 npm install webpack-dev-server --save-dev
 ```
+- 配置服务（选择其一）
+ - 1.配置文件 ——Node API
+ - cmd指令（推荐）
