@@ -65,7 +65,7 @@ $ npm init
   "name": "cordova",//项目名称
   "version": "1.0.0",
   "description": "abc",
-  "main": "npm start",//入口文件
+  "main": "index.js",//入口文件
   //项目依赖
   "dependencies": {
   //^表示版本更新时只能更新三位版本号的第二个数字(8)，~表示只能更新第三个数字(3)，*表示任何版本。
