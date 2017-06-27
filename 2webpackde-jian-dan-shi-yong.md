@@ -27,7 +27,8 @@ npm install webpack --save-dev
  $ webpack entry.js ./dist/bundle.js
  ```
  
- - 配置文件webpack.config.js文件中写入字段，webpack在启动时会读取它，并依据其工作
+ 2) 配置文件webpack.config.js文件中写入字段，webpack在启动时会读取它，并依据其工作。
+默认情况下，会搜索当前目录的 webpack.config.js 文件，这个文件是一个 node.js 模块，返回一个 json 格式的配置信息对象，或者通过 --config 选项来指定配置文件。
    - webpack.config.dev - debug配置
    - webpack.config.prod - release配置
 
