@@ -2,4 +2,5 @@
 
 * [Introduction](README.md)
 * [1.node常用命令](chapter1.md)
+* [2.webPack的简单使用](2webpackde-jian-dan-shi-yong.md)
 
