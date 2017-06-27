@@ -17,5 +17,5 @@
 ```
 - 安装webpack
 ```
-
+npm install webpack --save-dev
 ```

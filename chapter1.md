@@ -16,7 +16,7 @@ Node.js是JavaScript的一种运行环境，是对Google V8引擎进行的封装
 
 ##### 2.npm常用命令
 
-1\) 安装包 - npm install packageName
+1) 安装包 - npm install packageName
 
 ```
 //当前工程安装bebel
@@ -62,10 +62,10 @@ $ npm info babel
 //根据回答创建package.json文件(这个文件描述了项目相关信息)
 $ npm init
 {
-  "name": "cordova",
+  "name": "cordova",//项目名称
   "version": "1.0.0",
   "description": "abc",
-  "main": "npm start",
+  "main": "npm start",//入口文件
   //项目依赖
   "dependencies": {
   //^表示版本更新时只能更新三位版本号的第二个数字(8)，~表示只能更新第三个数字(3)，*表示任何版本。
