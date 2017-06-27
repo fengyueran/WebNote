@@ -39,7 +39,7 @@ $ npm install --save-dev babel-preset-stage-2
 $ npm install --save-dev babel-preset-stage-3
 ```
 然后，将这些规则加入.babelrc。
-
+```
   {
     "presets": [
       "es2015",
@@ -48,13 +48,16 @@ $ npm install --save-dev babel-preset-stage-3
     ],
     "plugins": []
   }
+```
 注意，以下所有Babel工具和模块的使用，都必须先写好.babelrc。
-二、命令行转码babel-cli
+
+**2.命令行转码babel-cli**
 Babel提供babel-cli工具，用于命令行转码。
 它的安装命令如下。
-
+```
 $ npm install --global babel-cli
-基本用法如下。
+```
+基本用法如下:
 
 # 转码结果输出到标准输出
 $ babel example.js
