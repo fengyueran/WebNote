@@ -59,23 +59,27 @@ $ npm install --global babel-cli
 ```
 基本用法如下:
 
-# 转码结果输出到标准输出
+转码结果输出到标准输出:
+```
 $ babel example.js
-
-# 转码结果写入一个文件
-# --out-file 或 -o 参数指定输出文件
+```
+转码结果写入一个文件:
+```
+// --out-file 或 -o 参数指定输出文件
 $ babel example.js --out-file compiled.js
-# 或者
+// 或者
 $ babel example.js -o compiled.js
-
-# 整个目录转码
+```
+整个目录转码:
+```
 # --out-dir 或 -d 参数指定输出目录
 $ babel src --out-dir lib
 # 或者
 $ babel src -d lib
 
-# -s 参数生成source map文件
+// -s 参数生成source map文件
 $ babel src -d lib -s
+```
 上面代码是在全局环境下，进行Babel转码。这意味着，如果项目要运行，全局环境必须有Babel，也就是说项目产生了对环境的依赖。另一方面，这样做也无法支持不同项目使用不同版本的Babel。
 一个解决办法是将babel-cli安装在项目之中。
 
