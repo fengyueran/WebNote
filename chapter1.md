@@ -98,7 +98,7 @@ $ npm uninstall underscore --save
 $ npm install babel --save-dev
 ```
 
-7\) 检查更新  - npm outdated
+7) 检查更新  - npm outdated
 
 ```
 //查看过期信息
@@ -151,7 +151,7 @@ npm允许在package.json文件里面，使用scripts字段定义脚本命令。
 }
 ```
 
-里面的scripts字段是一个对象。它的每一个属性，对应一段脚本。比如，startCordova命令对应的脚本是node serverCordova.js。命令行下使用npm run命令，就可以执行这段脚本。如：npm run startCordova 等于node startCordova。
+里面的scripts字段是一个对象。它的每一个属性，对应一段脚本。比如，startCordova命令对应的脚本是node serverCordova.js。命令行下使用npm run命令，就可以执行这段脚本。如：npm run startCordova 等于node startCordova。原理很简单，在执行npm run命令时，会新创建一个Shell，并将当前目录的/node_modules/.bin/加入到PATH变量(环境变量)，之后运行脚本命令，结束后，将PATH恢复原样。
 
 ##### 4.执行顺序
 
