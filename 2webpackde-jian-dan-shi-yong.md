@@ -28,3 +28,11 @@ npm install webpack --save-dev
    - webpack.config.prod - release配置
 
  - node api——其实配置文件也算node api，更广义的来讲，node api是一套配置文件的生成系统，根据不同的输入（从cli传参数--a=b），实现不同的配置。
+ 
+####2.配置webpack-dev-server这个服务器工具
+webpack-dev-server可以让浏览器实时刷新，显示我们对文件的改动。
+webpack-dev-server是一个小型的node.js Express服务器,为webpack打包生成的资源文件提供Web服务。webpack-dev-server发送关于编译状态的消息到客户端，客户端根据消息作出响应。
+- 安装webpack-dev-server
+```
+npm install webpack-dev-server --save-dev
+```
