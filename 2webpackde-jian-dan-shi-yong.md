@@ -22,9 +22,9 @@ npm install webpack --save-dev
 - 配置webpack
 可以有三种途径
 
- - cli——即命令行形式，一般都会动过package.json中写入scripts字段的形
+ 1) cli——即命令行形式，一般都会通过  package.json中写入scripts字段
  ```
- $ webpack entry.js bundle.js
+ $ webpack entry.js ./dist/bundle.js
  ```
  
  - 配置文件webpack.config.js文件中写入字段，webpack在启动时会读取它，并依据其工作
