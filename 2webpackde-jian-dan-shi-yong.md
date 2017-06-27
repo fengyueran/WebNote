@@ -19,3 +19,9 @@
 ```
 npm install webpack --save-dev
 ```
+- 配置webpack
+可以有三种途径
+
+ - cli——即命令行形式，一般都会动过package.json中写入scripts字段的形式
+ - 配置文件webpack.config.js文件中写入字段，webpack在启动时会读取它，并依据其工作
+ - node api——其实配置文件也算node api，更广义的来讲，node api是一套配置文件的生成系统，根据不同的输入（从cli传参数--a=b），实现不同的配置。
