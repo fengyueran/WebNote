@@ -81,8 +81,6 @@ var obj = { key: 'value', }
 
 **3.实例**
 
-
-
 创建index.js：
 
 ```
@@ -137,7 +135,7 @@ error  'console' is not defined  no-undef
 这是因为 JavaScript 有很多种运行环境，比如常见的有浏览器和 Node.js，另外还有很多软件系统使用 JavaScript 作为其脚本引擎，比如 PostgreSQL 就支持使用 JavaScript 来编写存储引擎，而这些运行环境可能并不存在console这个对象。另外在浏览器环境下会有window对象，而 Node.js 下没有；在 Node.js 下会有process对象，而浏览器环境下没有。
 
 所以在配置文件中我们还需要指定程序的目标环境：
-
+```
 module.exports = {
   extends: 'eslint:recommended',
   env: {
@@ -147,34 +145,16 @@ module.exports = {
     'no-console': 'off',
   },
 };
+```
 再重新执行检查时，已经没有任何提示输出了，说明index.js已经完全通过了检查。
 
-配置文件
 
-ESLint 还可以在项目的package.json文件中指定配置，直接将上文中的module.exports的值写到eslintConfig里面即可：
-
-{
-  "name": "my-package",
-  "version": "0.0.1",
-  "eslintConfig": {
-    "extends": "eslint:recommended",
-    "env": {
-      "node": true
-    },
-    "rules": {
-      "no-console": "off"
-    }
-  }
-}
-另外还可以在执行eslint命令时通过命令行参数来指定，详细文档可以参考这里：Configuring ESLint - 配置
-
-规则
-
+**规则**
 每条规则有 3 个等级：off、warn和error。off表示禁用这条规则，warn表示仅给出警告，并不会导致检查不通过，而error则会导致检查不通过。
 
 有些规则还带有可选的参数，比如comma-dangle可以写成[ "error", "always-multiline" ]；no-multi-spaces可以写成[ "error", { exceptions: { "ImportDeclaration": true }}]。
 
-规则的详细说明文档可以参考这里：Rules - 规则
+规则的详细说明文档可以参考这里：[Rules - 规则][1]
 
 使用共享的配置文件
 
@@ -320,25 +300,5 @@ var b = 456;
 
 详细使用方法可以参考文档：Disabling Rules with Inline Comments - 使用行内注释禁用规则
 
-总结
+[1]:http://eslint.cn/docs/rules/
 
-刚开始接触 ESLint 时觉得太难，是因为过太过于迷信权威。比如 Airbnb 公司的 JavaScript 风格，在 GitHub 上受到了很大的好评，其实我自己也非常认可这样的编码风格。但每个团队都会根据自己的的实际情况来定制不同的东西，我们并不能随便照搬过来。所以当使用eslint-config-airbnb这个配置进行 ESLint 检查时，满屏都是error和warning，从而觉得这东西根本没啥卵用。
-
-另外我也犯了「大忌」：直接使用eslint-config-airbnb这种某个公司高度定制化的配置，而不是eslint:recommended这样保守的。而且是直接用来检查整个项目好几十个 JS 文件，可想而知那是怎样的画面（本文最后版本的merge.js文件使用airbnb的配置，总共 12 行的代码就提示了 8 个问题：✖ 8 problems (7 errors, 1 warning)）。
-
-本文的目的是让读者以一个比较低的姿态开始接触 ESLint，先学会简单地配置规则，如果要更深入地定制自己的规则，建议阅读「相关链接」中的 ESLint 文档。
-
-相关链接
-
-ESLint 使用入门
-ESLinit 中文版文档
-关于作者
-
-
-老雷 ： Web开发者、 一登后端架构师、 《Node.js实战》作者之一
-个人主页: http://ucdok.com
-GitHub: https://github.com/leizongmin
-知识共享许可协议
-本作品由 老雷 创作，采用 知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 进行许可。
-
-使用微信扫描二维码加入作者的圈子，获取最新文章更新、向作者提问
