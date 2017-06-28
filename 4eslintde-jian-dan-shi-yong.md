@@ -253,6 +253,7 @@ run();
 其原理就是在载入模块时输出原来.eslintrc.js的数据。比如我们可以创建一个模块eslint-config-my用于测试。
 
 新建文件eslint-config-my/index.js：
+
 ```
 module.exports = {
   extends: 'eslint:recommended',
@@ -288,7 +289,7 @@ module.exports = {
 
 在执行eslint index.js检查，可看到没有任何错误提示信息，说明eslint已经成功载入了eslint-config-my的配置。如果我们使用npm publish将其发布到 NPM 上，那么其他人通过npm install eslint-config-my即可使用我们共享的这个配置。
 
-关于共享 ESLint 配置的详细文档可参考：Shareable Configs - 可共享的配置
+关于共享 ESLint 配置的详细文档可参考：[Shareable Configs - 可共享的配置][7]
 
 
 
@@ -302,3 +303,4 @@ module.exports = {
 [4]:http://eslint.cn/docs/user-guide/configuring#using-a-configuration-file
 [5]:http://eslint.cn/docs/user-guide/configuring#using-eslintall
 [6]:http://eslint.cn/docs/user-guide/configuring#disabling-rules-with-inline-comments
+[7]:http://eslint.cn/docs/developer-guide/shareable-configs
