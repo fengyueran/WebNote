@@ -156,23 +156,23 @@ module.exports = {
 
 规则的详细说明文档可以参考这里：[Rules - 规则][1]
 
-使用共享的配置文件
+**使用共享的配置文件**
 
-上文我们以eslint:recommended为基础配置，然后在此之上修改no-console这条规则。而在大多数时候，我们可能会根据自己个人或团队的习惯，定制更多的规则，比如限定缩进是 2 个空格和使用单引号的字符串等。而如果每一个项目都要这样写到.eslintrc.js文件上，管理起来会比较麻烦。
+上文我们以eslint:recommended为基础配置，然后在此之上修改no-console这条规则。而在大多数时候，我们可能会根据自己个人或团队的习惯，定制更多的规则，比如限定缩进是2个空格和使用单引号的字符串等。而如果每一个项目都要这样写到.eslintrc.js文件上，管理起来会比较麻烦。
 
 我们可以将定义好规则的.eslintrc.js文件存储到一个公共的位置，比如public-eslintrc.js：
-
+```
 module.exports = {
-  extends: 'eslint:recommended',
-  env: {
-    node: true,
+  "extends": 'eslint:recommended',
+  "env": {
+    "browser": true,
+    "node":true
   },
   rules: {
-    'no-console': 'off',
-    'indent': [ 'error', 2 ],
-    'quotes': [ 'error', 'single' ],
-  },
-};
+     'indent': [ 'error', 2 ],
+    },
+}
+```
 然后将原来的.eslintrc.js文件改成这样：
 
 module.exports = {
