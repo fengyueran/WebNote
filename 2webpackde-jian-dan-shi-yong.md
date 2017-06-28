@@ -35,10 +35,10 @@ npm install webpack --save-dev
  配置文件实例：
  ```
  module.exports = {
-   entry: "./example1/entry.js",
+   entry: "./example1/entry.js",//入口文件
    output: {
-      path: __dirname,
-      filename: "bundle.js"
+      path: __dirname,//刷出地址
+      filename: "bundle.js" //输出文件名
 },
   module: {
     loaders: [
