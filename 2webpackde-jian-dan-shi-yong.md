@@ -50,5 +50,15 @@ npm install webpack-dev-server --save-dev
  ```
  alert('hello world');
  ```
-
+增加 index.html
+```
+<html>
+<head>
+<title>webpack.toobug.net</title>
+<script src="./bundle.js"></script>
+</head>
+<body>
+</body>
+</html>
+```
  
