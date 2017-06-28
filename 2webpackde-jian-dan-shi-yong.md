@@ -93,7 +93,7 @@ webpack 会分析入口文件（entry.js）来找寻依赖文件。这些文件�
 配置文件：
 
 ```
- module.exports = {
+module.exports = {
 entry: "./example1/entry.js",
 output: {
   path: __dirname,
