@@ -78,6 +78,8 @@ alert('doing awful things');
 // Make this just a warning, not an error
 var obj = { key: 'value', } 
 ```
+详细使用方法可以参考文档：[Disabling Rules with Inline Comments - 使用行内注释禁用规则][6]
+
 
 **3.实例**
 
@@ -227,38 +229,31 @@ ESLint 配置文件中的extends还可以用来指定各种来源的配置引用
 
 **代码格式化**
 
-在ESLint 规则列表页面，我们发现有些规则的旁边会带有一个橙色扳手图标，表示在执行eslint命令时指定--fix参数可以自动修复该问题。
+在ESLint[规则列表][1]页面，我们发现有些规则的旁边会带有一个橙色扳手图标，表示在执行eslint命令时指定--fix参数可以自动修复该问题。
 
-接着上文使用eslint-config-lei配置的检查，我们尝试在执行检查时添加--fix参数：
+接着上文使用eslint-config-airbnb配置的检查，我们尝试在执行检查时添加--fix参数：
+```
+$ ./node_modules/.bin/eslint index.js --fix
+```
+执行完毕，没有发现任何提示。再打开index.js文件发现根规则已经变成了这样：
 
-$ eslint merge.js --fix
-执行完毕，没有发现任何提示。再打开merge.js文件发现已经变成了这样：
+```
+const run = function () {
+  console.log('eslint');
+};
 
-function merge() {
-  const ret = {};
-  for (const i in arguments) {
-    const m = arguments[i];
-    for (const j in m) ret[j] = m[j];
-  }
-  return ret;
-}
-
-console.log(merge({ a: 123 }, { b: 456 }));
-主要的变化有以下三部分：
-
-声明函数时，函数名与参数列表的空格不见了：merge ()修改为merge()
-var声明的变量变成了const声明：var ret = {}修改为const ret = {}
-对象的内容与花括号之间增加了空格：{a: 123}修改为{ a: 123 }
+run();
+```
 我们可以利用这个特性来自动格式化项目代码，这样就可以保证代码书写风格的统一。
 
-发布自己的配置
+**发布自己的配置**
 
-前文关于「共享的配置文件」一小节已经提到，可以在extends中指定一个文件名，或者一个eslint-config-开头的模块名。为了便于共享，一般推荐将其发布成一个 NPM 模块。
+关于「共享的配置文件」一小节已经提到，可以在extends中指定一个文件名，或者一个eslint-config-开头的模块名。为了便于共享，一般推荐将其发布成一个 NPM 模块。
 
 其原理就是在载入模块时输出原来.eslintrc.js的数据。比如我们可以创建一个模块eslint-config-my用于测试。
 
 新建文件eslint-config-my/index.js：
-
+```
 module.exports = {
   extends: 'eslint:recommended',
   env: {
@@ -271,46 +266,39 @@ module.exports = {
     'quotes': [ 'error', 'single' ],
   },
 };
+```
 再新建文件eslint-config-my/package.json：
-
+```
 {
   "name": "eslint-config-my",
   "version": "0.0.1",
   "main": "index.js"
 }
+```
 为了能让eslint正确载入这个模块，我们需要执行npm link将这个模块链接到本地全局位置：
 
 $ npm link eslint-config-my
 然后将文件.eslintrc.js改成这样：
-
+```
 module.exports = {
   extends: 'my',
 };
+```
 说明：在extends中，eslint-config-my可简写为my。
 
-在执行eslint merge.js检查，可看到没有任何错误提示信息，说明eslint已经成功载入了eslint-config-my的配置。如果我们使用npm publish将其发布到 NPM 上，那么其他人通过npm install eslint-config-my即可使用我们共享的这个配置。
-
-另外可以参考我自己写的一个 ESLint 配置模块：eslint-config-lei
+在执行eslint index.js检查，可看到没有任何错误提示信息，说明eslint已经成功载入了eslint-config-my的配置。如果我们使用npm publish将其发布到 NPM 上，那么其他人通过npm install eslint-config-my即可使用我们共享的这个配置。
 
 关于共享 ESLint 配置的详细文档可参考：Shareable Configs - 可共享的配置
 
-例外情况
 
-尽管我们在编码时怀着严格遵守规则的美好愿景，而凡事总有例外。定立 ESLint 规则的初衷是为了避免自己犯错，但是我们也要避免不顾实际情况而将其搞得太过于形式化，本末倒置。
 
-ESLint 提供了多种临时禁用规则的方式，比如我们可以通过一条eslint-disable-next-line备注来使得下一行可以跳过检查：
 
-// eslint-disable-next-line
-var a = 123;
-var b = 456;
-在上面的示例代码中，var a = 123不会受到检查，而var b = 456则右恢复检查，在上文我们使用的eslint-config-lei的配置规则下，由于不允许使用var声明变量，则var b这一行会报告一个error。
 
-我们还可以通过成对的eslint-enable和eslint-disable备注来禁用对某一段代码的检查，但是稍不小心少写了一个eslint-disable就可能会导致后面所有文件的检查都被禁用，所以我并不推荐使用。
 
-详细使用方法可以参考文档：Disabling Rules with Inline Comments - 使用行内注释禁用规则
 
 [1]:http://eslint.cn/docs/rules/
 [2]:http://eslint.cn/docs/user-guide/configuring#using-a-shareable-configuration-package
 [3]:http://eslint.cn/docs/user-guide/configuring#using-the-configuration-from-a-plugin
 [4]:http://eslint.cn/docs/user-guide/configuring#using-a-configuration-file
 [5]:http://eslint.cn/docs/user-guide/configuring#using-eslintall
+[6]:http://eslint.cn/docs/user-guide/configuring#disabling-rules-with-inline-comments
