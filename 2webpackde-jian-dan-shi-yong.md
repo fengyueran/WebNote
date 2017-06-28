@@ -44,7 +44,8 @@ npm install webpack-dev-server --save-dev
 - 配置服务（选择其一）
  - 1.配置文件 ——Node API
  - cmd指令（推荐）
- ####2.实例
+ 
+####2.实例
  [demo地址][1]
  从一个空白文件开始，创建以下文件：增加 entry.js:
  ```
@@ -61,4 +62,6 @@ npm install webpack-dev-server --save-dev
 </body>
 </html>
 ```
+然后执行以下命令：
+
  
