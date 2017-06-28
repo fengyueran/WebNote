@@ -106,32 +106,34 @@ $ eslint index.js
   extends: 'eslint:recommended',
 }
 ```
-重新执行eslint index.js可以看到输出了 1个错误：
+重新执行eslint index.js可以看到输出了 2个错误：
 ```
- error  Unexpected console statement  no-console
+error  Unexpected console statement  no-console 
+error  'console' is not defined no-undef
 
-✖ 1 problem (1 error, 0 warnings)
+✖ 2 problems (2 errors, 0 warnings)
 ```
 这两条提示信息还是足够我们搞清楚是怎么回事的：
 
 Unexpected console statement no-console - 不能使用console
 'console' is not defined no-undef - console变量未定义，不能使用未定义的变量
 针对第 1 条提示，我们可以禁用no-console规则。将配置文件.eslintrc.js改为这样：
-
+```
 module.exports = {
   extends: 'eslint:recommended',
   rules: {
     'no-console': 'off',
   },
 };
+```
 说明：配置规则写在rules对象里面，key表示规则名称，value表示规则的配置，具体说明见下文。
 
 重新执行检查还是提示no-undef：
-
-/example/merge.js
-  10:1  error  'console' is not defined  no-undef
+```
+error  'console' is not defined  no-undef
 
 ✖ 1 problem (1 error, 0 warnings)
+```
 这是因为 JavaScript 有很多种运行环境，比如常见的有浏览器和 Node.js，另外还有很多软件系统使用 JavaScript 作为其脚本引擎，比如 PostgreSQL 就支持使用 JavaScript 来编写存储引擎，而这些运行环境可能并不存在console这个对象。另外在浏览器环境下会有window对象，而 Node.js 下没有；在 Node.js 下会有process对象，而浏览器环境下没有。
 
 所以在配置文件中我们还需要指定程序的目标环境：
@@ -145,7 +147,7 @@ module.exports = {
     'no-console': 'off',
   },
 };
-再重新执行检查时，已经没有任何提示输出了，说明merge.js已经完全通过了检查。
+再重新执行检查时，已经没有任何提示输出了，说明index.js已经完全通过了检查。
 
 配置文件
 
