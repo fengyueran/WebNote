@@ -31,7 +31,23 @@ npm install webpack --save-dev
 默认情况下，会搜索当前目录的 webpack.config.js 文件，这个文件是一个 node.js 模块，返回一个 json 格式的配置信息对象，或者通过 --config 选项来指定配置文件。
    - webpack.config.dev - debug配置
    - webpack.config.prod - release配置
+   
+ 配置文件实例：
+ ```
+ module.exports = {
+   entry: "./example1/entry.js",
+   output: {
+      path: __dirname,
+      filename: "bundle.js"
+},
+  module: {
+    loaders: [
+    { test: /\.css$/, loader:   "style!css" }
+     ]
+   }
+};
 
+ ```
 - node api——其实配置文件也算node api，更广义的来讲，node api是一套配置文件的生成系统，根据不同的输入（从cli传参数--a=b），实现不同的配置。
  
 ####2.配置webpack-dev-server这个服务器工具
