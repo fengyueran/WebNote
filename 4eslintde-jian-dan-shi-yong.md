@@ -174,16 +174,16 @@ module.exports = {
 }
 ```
 然后将原来的.eslintrc.js文件改成这样：
-
+```
 module.exports = {
   extends: './public-eslintrc.js',
 };
-为了验证这样的修改是否生效，将merge.js中的var ret = {};这一行前面多加一个空格，再执行 ESLint 检查：
-
-/example/merge.js
-  2:4  error  Expected indentation of 2 space characters but found 3  indent
-
-✖ 1 problem (1 error, 0 warnings)
+```
+为了验证这样的修改是否生效，将index.js中的console.log('eslint');这一行前面多加一个空格，再执行 ESLint 检查：
+```
+ error  Expected indentation of 2 spaces but found 3  indent
+ error  Unexpected console statement  
+```
 这时候提示的是缩进只能为 2 个空格，而文件的第 2 行却发现了 3 个空格，说明公共配置文件public-eslintrc.js已经生效了。
 
 我们还可以使用已经发布到 NPM 上的 ESLint 配置，这些配置的模块名一般以eslint-config-为前缀，比如我在学习 ESLint 时自己编写的一个配置名为eslint-config-lei。要使用这个配置，先执行以下命令安装它：
