@@ -49,6 +49,21 @@ npm install webpack --save-dev
 
  ```
 - node api——其实配置文件也算node api，更广义的来讲，node api是一套配置文件的生成系统，根据不同的输入（从cli传参数--a=b），实现不同的配置。
+直接把配置对象传入 webpack api 就可以了。
+```
+var webpack = require("webpack");
+webpack({
+entry: "./main.js",
+output: {
+filename: "bundle.js"
+}
+}, function(err, stats) {
+err // => fatal compiler error (rar)
+var json = stats.toJson() // => webpack --json
+json.errors // => array of errors
+json.warnings // => array of warnings
+});
+```
  
 ####2.配置webpack-dev-server这个服务器工具
 webpack-dev-server可以让浏览器实时刷新，显示我们对文件的改动。
