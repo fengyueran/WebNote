@@ -64,8 +64,12 @@ npm install webpack-dev-server --save-dev
 ```
 然后执行以下命令：
 ```
-$ ./example1/entry.js ./example/bundle.js
+$ ./example1/entry.js ./example1/bundle.js
 ```
- 
+ 这将编译 entry.js 并输出为 bundle.js。
+ 在浏览器中打开 index.html ，将展示 
+ ```
+ hello world
+ ```
  
  [1]:https://github.com/fengyueran/WebPackDemo
