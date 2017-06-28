@@ -79,6 +79,9 @@ alert('doing awful things');
 var obj = { key: 'value', } 
 ```
 
+**3.实例**
+
+
 
 创建index.js：
 
@@ -98,17 +101,17 @@ $ eslint index.js
 可以看到，没有任何输出结果。这是因为我们没有指定任何的配置，除非这个文件是有语法错误，否则应该是不会有任何提示的。现在我们先使用内置的eslint:recommended配置，它包含了一系列核心规则，能报告一些常见的问题。
 
 首先新建 ESLint 配置文件.eslintrc.js：
-
-module.exports = {
+```
+{
   extends: 'eslint:recommended',
-};
-重新执行eslint merge.js可以看到输出了 2 个错误：
+}
+```
+重新执行eslint index.js可以看到输出了 1个错误：
+```
+ error  Unexpected console statement  no-console
 
-/example/merge.js
-  10:1  error  Unexpected console statement  no-console
-  10:1  error  'console' is not defined      no-undef
-
-✖ 2 problem (2 error, 0 warnings)
+✖ 1 problem (1 error, 0 warnings)
+```
 这两条提示信息还是足够我们搞清楚是怎么回事的：
 
 Unexpected console statement no-console - 不能使用console
