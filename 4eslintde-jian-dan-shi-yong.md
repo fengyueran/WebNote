@@ -10,10 +10,52 @@ $ npm install --save-dev eslint
 可以通过以下三种方式配置 ESLint:
 
 - 使用 .eslintrc 文件（支持 JSON 和 YAML 两种语法）；
+.eslintrc 文件示例：
+```
+{
+  "env": {
+    "browser": true,
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "globals": {
+    "angular": true,
+  },
+  "rules": {
+    "camelcase": 2,
+    "curly": 2,
+    "brace-style": [2, "1tbs"],
+    "quotes": [2, "single"],
+    "semi": [2, "always"],
+    "space-in-brackets": [2, "never"],
+    "space-infix-ops": 2,
+  }
+}
+```
+.eslintrc 放在项目根目录，则会应用到整个项目；如果子目录中也包含 .eslintrc 文件，则子目录会忽略根目录的配置文件，应用该目录中的配置文件。这样可以方便地对不同环境的代码应用不同的规则。
+package.json 示例：
+```
+{
+  "name": "mypackage",
+  "version": "0.0.1",
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true
+    }
+  }
+}
+```
+
 - 在 package.json 中添加 eslintConfig 配置块；
 - 直接在代码文件中定义。
 .eslintrc 文件示例：
 创建index.js：
+
 ```
 var run = function() {
   console.log('eslint')
