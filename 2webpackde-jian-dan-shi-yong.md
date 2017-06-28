@@ -32,7 +32,7 @@ npm install webpack --save-dev
    - webpack.config.dev - debug配置
    - webpack.config.prod - release配置
 
- - node api——其实配置文件也算node api，更广义的来讲，node api是一套配置文件的生成系统，根据不同的输入（从cli传参数--a=b），实现不同的配置。
+- node api——其实配置文件也算node api，更广义的来讲，node api是一套配置文件的生成系统，根据不同的输入（从cli传参数--a=b），实现不同的配置。
  
 ####2.配置webpack-dev-server这个服务器工具
 webpack-dev-server可以让浏览器实时刷新，显示我们对文件的改动。
@@ -44,3 +44,11 @@ npm install webpack-dev-server --save-dev
 - 配置服务（选择其一）
  - 1.配置文件 ——Node API
  - cmd指令（推荐）
+ ####2.实例
+ [demo地址][1]
+ 从一个空白文件开始，创建以下文件：增加 entry.js:
+ ```
+ alert('hello world');
+ ```
+
+ 
