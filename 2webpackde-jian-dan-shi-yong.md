@@ -64,7 +64,7 @@ npm install webpack-dev-server --save-dev
 ```
 然后执行以下命令：
 ```
-$ ./example1/entry.js ./example1/bundle.js
+$ webpack ./example1/entry.js ./example1/bundle.js
 ```
  这将编译 entry.js 并输出为 bundle.js。
  在浏览器中打开 index.html ，将展示 
@@ -82,9 +82,15 @@ module.exports = "It works from content.js.";
 - document.write("It works.");
 + document.write(require("./content.js"));
 ```
+ 然后编译
+ ```
+$ webpack ./example1/entry.js ./example1/bundle.js
+```
+刷新浏览器，可以看到内容变为 It works from content.js.
  
- 
- 
+webpack 会分析入口文件（entry.js）来找寻依赖文件。这些文件（又称之为模块）会包括到 bundle.js 中。webpack 会给每个模块一个唯一的 id，然后在 bundle.js 中通过该id来访问对应的模块。启动时，只会执行入口模块。一个短小的运行时提供了require 函数，在引用模块时会执行依赖模块。
+
+配置文件：
  
  
  
