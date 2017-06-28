@@ -71,5 +71,21 @@ $ ./example1/entry.js ./example1/bundle.js
  ```
  hello world
  ```
+ 第二个文件:
+ 下一步，我们将把部分代码移到另一个文件中。
+增加 content.js
+```
+module.exports = "It works from content.js.";
+```
+更新 entry.js
+```
+- document.write("It works.");
++ document.write(require("./content.js"));
+```
+ 
+ 
+ 
+ 
+ 
  
  [1]:https://github.com/fengyueran/WebPackDemo
