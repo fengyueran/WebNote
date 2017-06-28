@@ -1,10 +1,10 @@
 ESLint 是一个插件化的 javascript 代码检测工具，它可以用于检查常见的 JavaScript 代码错误，也可以进行代码风格检查，这样我们就可以根据自己的喜好指定一套 ESLint 配置，然后应用到所编写的项目上，从而实现辅助编码规范的执行，有效控制项目代码的质量。
 
-手把手入门
 
 在开始使用 ESLint 之前，我们需要通过 NPM 来安装它：
-
-$ npm install -g eslint
+```
+$ npm install --save-dev eslint
+```
 我从 Gist 上找到了自己几年前写的一个小函数，将其保存为文件merge.js：
 
 function merge () {
