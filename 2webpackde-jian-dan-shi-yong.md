@@ -91,7 +91,22 @@ $ webpack ./example1/entry.js ./example1/bundle.js
 webpack 会分析入口文件（entry.js）来找寻依赖文件。这些文件（又称之为模块）会包括到 bundle.js 中。webpack 会给每个模块一个唯一的 id，然后在 bundle.js 中通过该id来访问对应的模块。启动时，只会执行入口模块。一个短小的运行时提供了require 函数，在引用模块时会执行依赖模块。
 
 配置文件：
- 
+
+```
+ module.exports = {
+entry: "./example1/entry.js",
+output: {
+  path: __dirname,
+  filename: "bundle.js"
+},
+module: {
+  loaders: [
+    { test: /\.css$/, loader: "style!css" }
+  ]
+}
+};
+
+ ```
  
  
  [1]:https://github.com/fengyueran/WebPackDemo
