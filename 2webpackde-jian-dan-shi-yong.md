@@ -63,5 +63,7 @@ npm install webpack-dev-server --save-dev
 </html>
 ```
 然后执行以下命令：
-
+```
+$ webpack ./entry.js bundle.js
+```
  
