@@ -220,11 +220,12 @@ $ npm install --save-dev eslint-config-airbnb
 ```
 ESLint 配置文件中的extends还可以用来指定各种来源的配置引用，具体说明可以参考以下链接：
 
-Using a shareable configuration package - 使用共享的模块
-Using the configuration from a plugin - 使用插件
-Using a configuration file - 使用配置文件
-Using "eslint:all" - 使用"eslint:all"
-代码格式化
+[Using a shareable configuration package - 使用共享的模块][2]
+[Using the configuration from a plugin - 使用插件][3]
+[Using a configuration file - 使用配置文件][4]
+[Using "eslint:all" - 使用"eslint:all"][5]
+
+**代码格式化**
 
 在ESLint 规则列表页面，我们发现有些规则的旁边会带有一个橙色扳手图标，表示在执行eslint命令时指定--fix参数可以自动修复该问题。
 
@@ -309,4 +310,7 @@ var b = 456;
 详细使用方法可以参考文档：Disabling Rules with Inline Comments - 使用行内注释禁用规则
 
 [1]:http://eslint.cn/docs/rules/
-
+[2]:http://eslint.cn/docs/user-guide/configuring#using-a-shareable-configuration-package
+[3]:http://eslint.cn/docs/user-guide/configuring#using-the-configuration-from-a-plugin
+[4]:http://eslint.cn/docs/user-guide/configuring#using-a-configuration-file
+[5]:http://eslint.cn/docs/user-guide/configuring#using-eslintall
