@@ -186,30 +186,38 @@ module.exports = {
 ```
 这时候提示的是缩进只能为 2 个空格，而文件的第 2 行却发现了 3 个空格，说明公共配置文件public-eslintrc.js已经生效了。
 
-我们还可以使用已经发布到 NPM 上的 ESLint 配置，这些配置的模块名一般以eslint-config-为前缀，比如我在学习 ESLint 时自己编写的一个配置名为eslint-config-lei。要使用这个配置，先执行以下命令安装它：
-
-$ npm install -g eslint-config-lei
-注意：由于我们的eslint命令是全局安装的，所有用到的eslint-config-*模块也必须全局安装，否则将无法正确载入。这是一个已知的 Bug，参考这里：Error: Cannot read config package for shareable config using global eslint #4822
-
+我们还可以使用已经发布到 NPM 上的 ESLint 配置，这些配置的模块名一般以eslint-config-为前缀，比如广受好评的airbnb。要使用这个配置，先执行以下命令安装它：
+```
+$ npm install --save-dev eslint-config-airbnb
+```
 然后将.eslintrc.js文件改成这样：
+```
+{
+  # "extends": 'eslint:recommended',
+  # "extends": './public-eslintrc.js',
+  "extends": 'airbnb',
 
-module.exports = {
-  extends: 'lei',
-};
-再执行 ESLint 检查，可以看到输出如下的提示：
+  "env": {
+    "browser": true,
+    "node":true
+  },
+  rules: {
+    # "no-console": 'off',
+    },
+}
+```
+再执行 ESLint 检查: ./node_modules/.bin/eslint index.js ，可以看到输出如下的提示：
+```
+  1:1   error    Unexpected var, use let or const instead      no-var
+  1:11  warning  Unexpected unnamed function                   func-names
+  1:19  error    Missing space before function parentheses     space-before-function-paren
+  2:5   error    Expected indentation of 2 spaces but found 4  indent
+  2:5   warning  Unexpected console statement                  no-console
+  2:26  error    Missing semicolon                             semi
+  3:2   error    Missing semicolon                             semi
 
-/example/merge.js
-   1:15  warning  Unexpected space before function parentheses  space-before-function-paren
-   2:3   error    Unexpected var, use let or const instead      no-var
-   3:8   error    Unexpected var, use let or const instead      no-var
-   4:5   error    Unexpected var, use let or const instead      no-var
-   5:10  error    Unexpected var, use let or const instead      no-var
-  10:19  warning  A space is required after '{'                 object-curly-spacing
-  10:26  warning  A space is required before '}'                object-curly-spacing
-  10:29  warning  A space is required after '{'                 object-curly-spacing
-  10:36  warning  A space is required before '}'                object-curly-spacing
-
-✖ 9 problems (4 errors, 5 warnings)
+✖ 7 problems (5 errors, 2 warnings)
+```
 ESLint 配置文件中的extends还可以用来指定各种来源的配置引用，具体说明可以参考以下链接：
 
 Using a shareable configuration package - 使用共享的模块
