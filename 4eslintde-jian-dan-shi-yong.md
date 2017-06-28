@@ -9,7 +9,7 @@ $ npm install --save-dev eslint
 
 可以通过以下三种方式配置 ESLint:
 
-- 使用 .eslintrc 文件（支持 JSON 和 YAML 两种语法）；
+- 使用 .eslintrc 文件（支持 JSON 和 YAML 两种语法）
 .eslintrc 文件示例：
 ```
 {
@@ -37,7 +37,11 @@ $ npm install --save-dev eslint
 }
 ```
 .eslintrc 放在项目根目录，则会应用到整个项目；如果子目录中也包含 .eslintrc 文件，则子目录会忽略根目录的配置文件，应用该目录中的配置文件。这样可以方便地对不同环境的代码应用不同的规则。
-package.json 示例：
+
+
+- 在 package.json 中添加 eslintConfig 配置块；
+
+ package.json 示例：
 ```
 {
   "name": "mypackage",
@@ -51,9 +55,31 @@ package.json 示例：
 }
 ```
 
-- 在 package.json 中添加 eslintConfig 配置块；
+
 - 直接在代码文件中定义。
-.eslintrc 文件示例：
+
+ 代码文件内配置的规则会覆盖配置文件里的规则。
+ 禁用 ESLint：
+ ```
+ /* eslint-disable */
+var obj = { key: 'value', }; // I don't care about IE8  
+/* eslint-enable */
+ ```
+禁用一条规则：
+
+```
+/*eslint-disable no-alert */
+alert('doing awful things');  
+/* eslint-enable no-alert */
+```
+调整规则：
+```
+/* eslint no-comma-dangle:1 */
+// Make this just a warning, not an error
+var obj = { key: 'value', } 
+```
+
+
 创建index.js：
 
 ```
