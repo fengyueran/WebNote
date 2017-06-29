@@ -2,26 +2,7 @@ webpack 是一个模块打包器。
 webpack 处理带有依赖关系的模块，生成一系列表示这些模块的静态资源。
 
 ####1.webpack安装与配置
-这里用node-npm来安装webpack
-- 新建工程目录-WebPackDemo
-- 在工程目录中初始化配置npm init，生成package.json文件
-```
-{
-  "name": "webpackdemo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
-}
-```
-- 安装webpack
-```
-npm install webpack --save-dev
-```
+
 - 配置webpack
 可以有三种途径
 
