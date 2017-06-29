@@ -15,7 +15,7 @@ coffee-loader的作用就是在引用.coffee文件时，自动转换成JS文件�
 
 首先我们准备一个index.js：
 ```
-var hello = require('coffee!./example1.2.coffee');
+var hello = require('coffee-loader!./coffee.js');
 hello.sayHello();
 ```
 值得注意的是这里在require参数最前面加了coffee!，这个表示使用coffee-loader来处理文件内容。详细的机制稍后说明。
