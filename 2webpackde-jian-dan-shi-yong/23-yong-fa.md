@@ -13,8 +13,8 @@ CLI即Command Line Interface，顾名思义，也就是命令行用户界面，�
 //执行时webpack会去寻找当前目录下的webpack.config.js当作配置文件使用
 webpack
 
-// 也可以用参数-c指定配置文件
-webpack -c mycofnig.js
+// 也可以用参数--config指定配置文件
+webpack --config mycofnig.js
 ```
 
    
