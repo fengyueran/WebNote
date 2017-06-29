@@ -70,6 +70,53 @@ loader是可以串联使用的，也就是说，一个文件可以先经过A-loa
 ```
 require('style!css!./style.css');
 ```
+这个例子的意思是将style.css文件内容先经过css-loader处理（路径处理、import处理等），然后经过style-loader处理（包装成JS文件，运行的时候直接将样式插入DOM中。）
+参数
+
+loader还可以接受参数，不同的参数可以让loader有不同的行为（前提是loader确实支持不同的行为），具体每个loader支持什么样的参数可以参考loader的文档。同样以coffee-loader为例，它可以指定一个名为literate的参数，意思是……我也不知道，猜测可能是编译非完整的coffee script文件（例如内嵌在markdown中的代码片段等），如果你知道是什么意思，请告诉我。
+在上面的用法中，参数的指定方式和url很像，要通过?来指定，例如指定literate参数需要这样写：
+```
+require('coffee?literate=1!./a.coffee');
+```
+这段代码中指定了literate参数为1，如果不写=1的话，默认值为true。（coffee-loader官方并没有说可以为1，而是只写了literate，没有值）。
+
+**loader使用方法**
+loader的使用有三种方法，分别是：
+- 在require中显式指定，即上面看到的用法
+- 在配置项（webpack.config.js）中指定
+- 在命令行中指定
+第一种我们已经看过了，不再说明。
+第二种，在配置项中指定是最灵活的方式，它的指定方式是这样：
+
+```
+module: {
+    // loaders是一个数组，每个元素都用来指定loader
+    loaders: [{
+        test: /\.jade$/,    //test值为正则表达式，当文件路径匹配时启用
+        loader: 'jade',    //指定使用什么loader，可以用字符串，也可以用数组
+        exclude: /regexp/, //可以使用exclude来排除一部分文件
+
+        //可以使用query来指定参数，也可以在loader中用和require一样的用法指定参数，如`jade?p1=1`
+        query: {
+            p1:'1'
+        }
+    },
+    {
+        test: /\.css$/,
+        loader: 'style!css'    //loader可以和require用法一样串联
+    },
+    {
+        test: /\.css$/,
+        loaders: ['style', 'css']    //也可以用数组指定loader
+    }]
+}
+
+```
+在命令行中指定参数的用法用得较少，可以这样写：
+```
+webpack --module-bind jade --module-bind 'css=style!css'
+````
+使用--module-bind指定loader，如果后缀和loader一样，直接写就好了，比如jade表示.jade文件用jade-loader处理，如果不一样，则需要显示指定，如css=style!css表示分别使用css-loader和style-loader处理.css文件。
 
 
 
