@@ -16,8 +16,13 @@ webpack
 // 也可以用参数--config指定配置文件
 webpack --config mycofnig.js
 ```
-
-   
+配置文件webpack.config.js的写法则是：
+```
+module.exports = {
+    // 配置项
+};
+```
+ 值得注意的是，配置文件是一个真正的JS文件，因此配置项只要是一个对象即可，并不要求是JSON。也就意味着你可以使用表达式，也可以进行动态计算，或者甚至使用继承的方式生成配置项。  
  配置文件实例：
  ```
  module.exports = {
