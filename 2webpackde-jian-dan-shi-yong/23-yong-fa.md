@@ -32,7 +32,8 @@ module.exports = {
       filename: "bundle.js" //输出文件名
       publicPath: './',//网站运行时的访问路径 
 },
-  resolve: {
+//webpack在构建包的时候会按目录的进行文件的查找，resolve属性中的extensions数组中用于配置程序可以自行补全哪些文件后缀：
+  resolve: {//
       	//查找module的话从这里开始查找
       	root: '/pomy/github/flux-example/src', //绝对路径
       	//自动扩展文件后缀名，意味着我们require模块可以省略不写后缀名
