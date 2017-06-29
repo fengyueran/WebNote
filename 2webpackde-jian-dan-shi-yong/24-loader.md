@@ -10,4 +10,22 @@ webpack处理的主要对象是JS文件，而我们知道JS文件是可以做很
 
 **用法**
 >coffee就是指coffee script啦，可以算是JS的一种方言，深受ruby/python党喜爱。虽然笔者并不使用coffee，也不提倡使用，但这个loader相对比较典型，容易理解。在生产环境中，更提倡使用ES6编写代码，然后使用babel-loader编译成ES5代码使用，但因为babel 6改成了插件式的，配置项略多，为了简单起见，先不使用这个。
+
 coffee-loader的作用就是在引用.coffee文件时，自动转换成JS文件，这样可以省去额外的将.coffee变成.js的过程。
+
+首先我们准备一个index.js：
+```
+var hello = require('coffee!./example1.2.coffee');
+hello.sayHello();
+```
+值得注意的是这里在require参数最前面加了coffee!，这个表示使用coffee-loader来处理文件内容。详细的机制稍后说明。
+接下来，准备coffee.js：
+```
+class Hello
+    constructor: (@name) ->
+
+    sayHello: () ->
+        alert "hello #{@name}"
+
+module.exports = new Hello 'world'
+```
