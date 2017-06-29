@@ -5,7 +5,14 @@ webpack-dev-server 与 webpack-dev-middleware
 
 **1.webpack-dev-server**
 
-webpack-dev-server 是一个开发服务器
+它是一个静态资源服务器，只用于开发环境。
+
+一般来说，对于纯前端的项目（全部由静态html文件组成），简单地在项目根目录运行webpack-dev-server，然后打开html，修改任意关联的源文件并保存，webpack编译就会运行，并在运行完成后通知浏览器刷新。
+
+和直接在命令行里运行webpack不同的是，webpack-dev-server会把编译后的静态文件全部保存在内存里，而不会写入到文件目录内。这样，少了那个每次都在变的webpack输出目录，会不会觉得更清爽呢？
+
+如果在请求某个静态资源的时候，webpack编译还没有运行完毕，webpack-dev-server不会让这个请求失败，而是会一直阻塞它，直到webpack编译完毕。这个对应的效果是，如果你在不恰当的时候刷新了页面，不会看到错误，而是会在等待一段时间后重新看到正常的页面，就好像“网速很慢”。
+
 
 安装
 ```
@@ -34,7 +41,7 @@ var server = new webpackDevServer(compiler, {
 server.listen(8080);
 ```
 同时需要添加
- new webpack.HotModuleReplacementPlugin() 插件到webpack config里
+new webpack.HotModuleReplacementPlugin() 插件到webpack config里
 
 ```
 var path = require( "path" );
@@ -62,58 +69,8 @@ module.exports = {
 };
 ```
 
-下面说下 webpack-dev-middleware
+**2.webpack-dev-middleware**
 
-webpack-dev-middleware 是一个中间件，可以集成到现有服务里，主要是监控资源变动进行重编译。
+webpack-dev-middleware是一个处理静态资源的middleware。前面说的webpack-dev-server，实际上是一个小型Express服务器，它也是用webpack-dev-middleware来处理webpack编译后的输出。
 
-所以要用到热更新还需要另一个中间件 webpack-hot-middleware
-
-如果你用的是koa 可以用下面对应的中间件
-
-koa-webpack-dev-middleware
-
-koa-webpack-hot-middleware
-
-如果用到的是koa2，可以这个中间件
-
-koa-webpack-middleware
-
-其实koa的中间件，都是依赖的上面的中间件，只是进行了包装符合koa的用法而已
-
-koa2热更新 demo传送门
-
-基本原理是dev-middleware监听变动，重新编译，hot-middleware监听编译事件，把变动通知到每一个通过Server Sent Events 连接的客户端，客户端接收到消息，检查本地是否是新的，如果过期了触发webpack的热更新，也就是把变动的代码拉过来动态替换掉。
-
-其实如果看demo可以发现修改css文件是热更新，修改js是页面刷新
-
-是因为style-loader支持了热更新，如果让我们js支持更新加上如下代码即可。
-
-if(module.hot) {
-    module.hot.accept()
-}
-它有个冒泡机制，变动的模块会向上传递，直到有accept的处理，否则刷新页面
-
-具体可以看下这俩篇大概了解下
-
-http://webpack.github.io/docs/hot-module-replacement.html
-
-http://webpack.github.io/docs/hot-module-replacement-with-webpack.html
-
-本文链接：https://gmiam.com/post/webpack-hot-replacement.html
-
--- EOF --
-
-作者 admin 发表于 2016-05-09 12:00:00 ，并被添加「 nodejs webpack 」标签 ，最后修改于 2016-05-11 00:15:07
-
-« Koa 2.0 使用与内部分析基于 Koa 2.0 打造自己的框架应用 Robot »
-Comments
-
-网友跟贴0人参与
-
-抵制低俗，文明上网，登录发贴
-快速登录：
-发表跟贴
-最新最热
-网易云跟贴，有你更精彩
-© 2017 -  GM's Blog  - gmiam.com 
-Powered by ThinkJS & FireKylin 0.15.5
+webpack-hot-middleware是一个结合webpack-dev-middleware使用的middleware，它可以实现浏览器的无刷新更新（hot reload）。这也是webpack文档里常说的HMR（Hot Module Replacement）。
