@@ -123,4 +123,10 @@ export default {
 ```
 在这个配置文件中，还有一个要点是publicPath不是/这样的值，而是http://localhost:3000/这样的绝对地址。这是因为，在使用?sourceMap的时候，style-loader会把css的引入做成这样：
 ![](/2webpackde-jian-dan-shi-yong/26-1.png)
-这种blob的形式可能会使得css里的url()引用的图片失效，因此建议用带http的绝对地址（这也只有开发环境会用到）。有关这个问题的详情，你可以查看github上的issue。
+这种blob的形式可能会使得css里的url()引用的图片失效，因此建议用带http的绝对地址（这也只有开发环境会用到）。有关这个问题的详情，你可以查看github上的[issue][1]。
+
+
+
+
+
+[1]:https://github.com/webpack-contrib/style-loader/issues/55
