@@ -51,6 +51,10 @@ npm install webpack --save-dev
 };
 
  ```
+ 使用加载器：
+ 上面的配置中有loaders选项，即加载器。加载器是把一个资源文件作为入参转换为另一个资源文件的 node.js 函数。
+例如，可以通过加载器来让 webpack 来加载 CoffeeScript 或 JSX 文件。
+
 - node api——其实配置文件也算node api，更广义的来讲，node api是一套配置文件的生成系统，根据不同的输入（从cli传参数--a=b），实现不同的配置。
 直接把配置对象传入 webpack api 就可以了。
 ```
