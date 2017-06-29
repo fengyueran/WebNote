@@ -39,7 +39,24 @@ module.exports = {
 };
 
  ```
- 
+可以多入口文件
+```
+var path = require('path')
+module.exports = {
+  entry:{
+    pageA: './pageA.js',
+    pageB: './pageB.js',
+  },
+  output:{
+          filename: '[name].bundle.js',
+          path: path.join(__dirname, "/dist"),
+        },
+  resolve: {
+          //resolve 指定可以被 import 的文件后缀
+           extensions: ['.js', '.jsx']
+        },
+};
+``` 
  3.API
  API则是指将webpack作为Node.js模块使用，例如：
  ```
