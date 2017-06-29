@@ -56,15 +56,15 @@ npm install webpack --save-dev
 ```
 var webpack = require("webpack");
 webpack({
-entry: "./main.js",
-output: {
-filename: "bundle.js"
-}
+ entry: "./main.js",
+ output: {
+    filename: "bundle.js"
+    }
 }, function(err, stats) {
-err // => fatal compiler error (rar)
-var json = stats.toJson() // => webpack --json
-json.errors // => array of errors
-json.warnings // => array of warnings
+    err // => fatal compiler error (rar)
+    var json = stats.toJson() // => webpack --json
+    json.errors // => array of errors
+    json.warnings // => array of warnings
 });
 ```
  
