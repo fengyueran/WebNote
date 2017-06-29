@@ -29,3 +29,12 @@ class Hello
 
 module.exports = new Hello 'world'
 ```
+接下来，我们需要安装coffee-loader。webpack的每一个loader命名都是xxx-loader，在安装的时候需要将对应的loader装到项目目录下：
+```
+npm install coffee-loader --save-dev
+```
+然后编译：
+```
+webpack index.js bundle.js
+```
+打HTML，即可看到我们写的代码生效了。
