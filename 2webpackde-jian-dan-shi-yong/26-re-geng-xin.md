@@ -76,10 +76,17 @@ webpack-dev-middleware是一个处理静态资源的middleware。前面说的web
 webpack-hot-middleware是一个结合webpack-dev-middleware使用的middleware，它可以实现浏览器的无刷新更新（hot reload）。这也是webpack文档里常说的HMR（Hot Module Replacement）。
 
 webpack配置文件部分:
+
 ```
 import path from 'path';
 import webpack from 'webpack';
 // reload=true 的意思是，如果碰到不能hot reload的情况，就整页刷新。
+const hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';
+// __dirname是当前运行的js所在的目录
+import path from 'path';
+import webpack from 'webpack';
+// reload=true 的意思是，如果碰到不能hot reload的情况，就整页刷新。
+const publicPath = 'http://localhost:3000/';
 const hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';
 // __dirname是当前运行的js所在的目录
 export default {
@@ -90,7 +97,7 @@ export default {
   output: {
     filename: 'bundle.js',
     path: `${__dirname}/dist`,
-    publicPath: './',
+    publicPath,
   },
   devtool: 'source-map',
   resolve: {
@@ -112,4 +119,8 @@ export default {
   ],
 };
 
+
 ```
+在这个配置文件中，还有一个要点是publicPath不是/这样的值，而是http://localhost:3000/这样的绝对地址。这是因为，在使用?sourceMap的时候，style-loader会把css的引入做成这样：
+![](/2webpackde-jian-dan-shi-yong/26-1.png)
+这种blob的形式可能会使得css里的url()引用的图片失效，因此建议用带http的绝对地址（这也只有开发环境会用到）。有关这个问题的详情，你可以查看github上的issue。
