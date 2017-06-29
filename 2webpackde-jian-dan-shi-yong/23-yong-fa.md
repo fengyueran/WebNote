@@ -30,7 +30,20 @@ module.exports = {
    output: {
       path: __dirname,//刷出地址
       filename: "bundle.js" //输出文件名
+      publicPath: './',//网站运行时的访问路径 
 },
+  resolve: {
+      	//查找module的话从这里开始查找
+      	root: '/pomy/github/flux-example/src', //绝对路径
+      	//自动扩展文件后缀名，意味着我们require模块可以省略不写后缀名
+      	extensions: ['', '.js', '.json', '.scss'],
+      	//模块别名定义，方便后续直接引用别名，无须多写长长的地址
+      	alias: {
+      		AppStore : 'js/stores/AppStores.js',//后续直接 require('AppStore') 即可
+      		ActionType : 'js/actions/ActionType.js',
+      		AppAction : 'js/actions/AppAction.js'
+      	}
+      }
   module: {
     loaders: [
     { test: /\.css$/, loader:   "style!css" }
@@ -39,7 +52,8 @@ module.exports = {
 };
 
  ```
-可以多入口文件
+**可以多入口文件**
+为了使用多入口文件，你可以给entry传入一个对象。对象的key代表入口点名字，value代表入口点。当使用多入口点的时候，需要重载output.filename，否责每个入口点都写入到同一个输出文件里面了。使用[name]来得到入口点名字。
 ```
 var path = require('path')
 module.exports = {
