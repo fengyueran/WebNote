@@ -74,3 +74,42 @@ module.exports = {
 webpack-dev-middleware是一个处理静态资源的middleware。前面说的webpack-dev-server，实际上是一个小型Express服务器，它也是用webpack-dev-middleware来处理webpack编译后的输出。
 
 webpack-hot-middleware是一个结合webpack-dev-middleware使用的middleware，它可以实现浏览器的无刷新更新（hot reload）。这也是webpack文档里常说的HMR（Hot Module Replacement）。
+
+webpack配置文件部分:
+```
+import path from 'path';
+import webpack from 'webpack';
+// reload=true 的意思是，如果碰到不能hot reload的情况，就整页刷新。
+const hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';
+// __dirname是当前运行的js所在的目录
+export default {
+  entry: [
+    hotMiddlewareScript,
+    path.join(__dirname, '/app/index.js'),
+  ],
+  output: {
+    filename: 'bundle.js',
+    path: `${__dirname}/dist`,
+    publicPath: './',
+  },
+  devtool: 'source-map',
+  resolve: {
+          // resolve 指定可以被 import 的文件后缀
+    extensions: ['.js', '.jsx'],
+  },
+  module: {
+    // loaders是一个数组，每个元素都用来指定loader
+    loaders: [{
+      test: /\.(jsx|js)$/, // test值为正则表达式，当文件路径匹配时启用
+      loaders: ['babel-loader', 'eslint-loader'], // 指定使用什么loader，可以用字符串，也可以用数组
+      exclude: /regexp/, //可以使用exclude来排除一部分文件
+    }],
+
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
+  ],
+};
+
+```
