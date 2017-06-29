@@ -5,6 +5,7 @@
 * [2.webPack的简单使用](2webpackde-jian-dan-shi-yong.md)
   * [2.1 webpack是什么](2webpackde-jian-dan-shi-yong/21-webpackshi-shi-yao.md)
   * [2.2 安装](2webpackde-jian-dan-shi-yong/22-an-zhuang.md)
+  * 2.3 用法
 * [3.babel](3babel.md)
 * [4.eslint的简单使用](4eslintde-jian-dan-shi-yong.md)
 
