@@ -72,6 +72,12 @@ module.exports = {
 **2.webpack-dev-middleware**
 
 webpack-dev-middleware是一个处理静态资源的middleware。前面说的webpack-dev-server，实际上是一个小型Express服务器，它也是用webpack-dev-middleware来处理webpack编译后的输出。
+比起直接编译，webpack-dev-middleware 多了一些好处:
+
+- 不需要一直写入磁盘，所有产生的结果会直接存在内存
+- 在监视模式(watch mode)下如果发生更改，middleware 会马上停止提供旧版的 bundle 並且会延迟请求的回应直到编译完成
+
+
 
 webpack-hot-middleware是一个结合webpack-dev-middleware使用的middleware，它可以实现浏览器的无刷新更新（hot reload）。这也是webpack文档里常说的HMR（Hot Module Replacement）。
 
