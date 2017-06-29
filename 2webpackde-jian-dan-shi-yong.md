@@ -1,3 +1,6 @@
+webpack 是一个模块打包器。
+webpack 处理带有依赖关系的模块，生成一系列表示这些模块的静态资源。
+
 ####1.webpack安装与配置
 这里用node-npm来安装webpack
 - 新建工程目录-WebPackDemo
