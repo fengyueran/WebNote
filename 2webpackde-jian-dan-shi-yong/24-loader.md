@@ -64,6 +64,15 @@ function(module, exports) {
 
 /***/ }
 ```
+
+**串联**
+loader是可以串联使用的，也就是说，一个文件可以先经过A-loader再经过B-loader最后再经过C-loader处理。而在经过所有的loader处理之前，webpack会先取到文件内容交给第一个loader。以我们后面经常会涉及的一个例子说明：
+```
+require('style!css!./style.css');
+```
+
+
+
 [demo地址][1]
 
 
