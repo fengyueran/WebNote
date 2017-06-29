@@ -38,3 +38,29 @@ npm install coffee-loader --save-dev
 webpack index.js bundle.js
 ```
 打HTML，即可看到我们写的代码生效了。
+
+
+coffee.js编译后的代码也可以拿出来看一下：
+```
+function(module, exports) {
+
+    var Hello;
+
+    Hello = (function() {
+      function Hello(name) {
+        this.name = name;
+      }
+
+      Hello.prototype.sayHello = function() {
+        return alert("hello " + this.name);
+      };
+
+      return Hello;
+
+    })();
+
+    module.exports = new Hello('world');
+
+
+/***/ }
+```
