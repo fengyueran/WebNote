@@ -125,8 +125,52 @@ export default {
 ![](/2webpackde-jian-dan-shi-yong/26-1.png)
 这种blob的形式可能会使得css里的url()引用的图片失效，因此建议用带http的绝对地址（这也只有开发环境会用到）。有关这个问题的详情，你可以查看github上的[issue][1]。
 
+**使用browserSync热更新**
+配置
+```
+/* eslint-disable */
+import webpack from 'webpack';
+import config from './webpack.config.dev';
+import browserSync from 'browser-sync';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+import webpackDevMiddleware from 'webpack-dev-middleware';
 
+const bundler = webpack(config);
 
+// Run Browsersync and use middleware for Hot Module Replacement
+browserSync({
+  startPath: 'index.html',
+  server: {
+    baseDir: ['./src', './'],//服务路径，也就是页面资源存放的路径
+    middleware: [
+      webpackDevMiddleware(bundler, {
+        // Dev middleware can't access config, so we provide publicPath
+        publicPath: config.output.publicPath,
+
+        // pretty colored output
+        stats: { colors: true },
+
+        // Set to false to display a list of each file that is being bundled.
+        noInfo: true,
+
+        // for other settings see
+        // http://webpack.github.io/docs/webpack-dev-middleware.html
+      }),
+
+      // bundler should be the same as above
+      webpackHotMiddleware(bundler),
+
+      // historyApiFallback(),
+    ],
+  },
+
+  // no need to watch '*.js' here, webpack will take care of it for us,
+  // including full page reloads if HMR won't work
+  files: [
+
+  ],
+});
+```
 
 
 [1]:https://github.com/webpack-contrib/style-loader/issues/55
