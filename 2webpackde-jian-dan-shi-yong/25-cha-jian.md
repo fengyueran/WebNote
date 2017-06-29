@@ -1,0 +1,3 @@
+插件，比loader更强大，能使用更多webpack的api
+
+插件一般都是用于输出bundle的node模块。例如，uglifyJSPlugin获取bundle.js然后压缩和混淆内容以减小文件体积。类似的extract-text-webpack-plugin内部使用css-loader和style-loader来收集所有的css到一个地方最终将结果提取结果到一个独立的”styles.css“文件，并且在html里边引用style.css文件。
