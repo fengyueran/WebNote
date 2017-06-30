@@ -93,10 +93,18 @@ webpack-dev-server其中部分功能就能克服上面的2个问题。webpack-de
 
 这2种模式配置的方式和访问的路径稍微有点区别，最主要的区别还是Iframe mode是在网页中嵌入了一个iframe，将我们自己的应用注入到这个iframe当中去，因此每次你修改的文件后，都是这个iframe进行了reload。
 两种模式都支持热模块替换(Hot Module Replacement).热模块替换的好处是只替换更新的部分,而不是页面重载.
+**inline模式**
+inline模式下我们访问的URL不用发生变化,启用这种模式分两种情况:
+1 当以命令行启动webpack-dev-server时,需要做两点：
+- 在命令行中添加--inline命令
+- 在webpack.config.js中添加devServer:{inline:true}
+
 启用Inline mode的热更新很简单，执行如下即可
 ```
 webpack-dev-server --inline --hot
 ```
+2 当以Node.js API启动webpack-dev-server时,我们也需要做两点:
+
 这里在说下通过node api的形式开启热更新其实本质是一样的，只不过命令行形式帮我们做了处理，代码如下
 ```
 var config = require("./webpack.config.js");
