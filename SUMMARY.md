@@ -14,6 +14,7 @@
 * [5.react](5react.md)
   * [5.1 准备工作](5react/51-zhun-bei-gong-zuo.md)
   * [5.2 使用JSX](5react/52-shi-yong-jsx.md)
+  * 5.3 属性扩散
 * [20.正则表达式](20zheng-ze-biao-da-shi.md)
   * [20.1 正则表达式是什么？](20zheng-ze-biao-da-shi/201-zheng-ze-biao-da-shi-shi-shi-yao-ff1f.md)
 
