@@ -263,5 +263,6 @@ browserSync({
 });
 ```
 
-
+[demo地址][2]
 [1]:https://github.com/webpack-contrib/style-loader/issues/55
+[2]:https://github.com/fengyueran/WebPackDemo.git
