@@ -58,6 +58,7 @@ dispatcher 只是一个粘合剂，剩余的 Store、View、Action 就需要按�
 **Action**
 
 首先要创建动作，通过定义一些 action creator 方法来创建，这些方法用来暴露给外部调用，通过 dispatch 分发对应的动作，所以 action creator 也称作 dispatcher helper methods 辅助 dipatcher 分发。 参见 actions/TodoActions.js
+```
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var TodoConstants = require('../constants/TodoConstants');
 
@@ -84,6 +85,7 @@ var TodoActions = {
     });
   }
 };
+```
 AppDispatcher 直接继承自 Dispatcher.js，在这个简单的例子中没有提供什么额外的功能。TodoConstants 定义了动作的类型名称常量。
 类似 create、updateText 就是 action creator，这两个动作会通过 View 上的用户交互触发（比如输入框）。 除了用户交互会创建动作，服务端接口调用也可以用来创建动作，比如通过 Ajax 请求的一些初始数据也可以创建动作提供给 dispatcher，再分发给 store 使用这些初始数据。
 action creators are nothing more than a call into the dispatcher.
