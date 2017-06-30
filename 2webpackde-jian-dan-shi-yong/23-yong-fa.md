@@ -107,6 +107,8 @@ output: {
     filename: '/javascripts/[name].js'
 }
 ```
+确定webpack生成的js文件的准确路径和文件名，其文件路径根据之前的path和filename进行合成，文件为entry中的指定的index.js文件的模块名，如上面配置项所示，index.js文件生成的路径为 build/public/javascripts/indexA.js
+
 
 **可以多入口文件**
 为了使用多入口文件，你可以给entry传入一个对象。对象的key代表入口点名字，value代表入口点。当使用多入口点的时候，需要重载output.filename，否责每个入口点都写入到同一个输出文件里面了。使用[name]来得到入口点名字。
