@@ -40,6 +40,51 @@ webpack-dev-server其中部分功能就能克服上面的2个问题。webpack-de
     }
 ```
 注意：你启动webpack-dev-server后，你在目标文件夹中是看不到编译后的文件的,实时编译后的文件都保存到了内存当中。因此很多同学使用webpack-dev-server进行开发的时候都看不到编译后的文件
+面来结合webpack的文档和webpack-dev-server里部分源码来说明下如何使用：
+
+**启动：**
+启动webpack-dev-server有2种方式：
+- 通过cmd line
+- 通过Node.js API
+
+**配置：**
+这个时候还要注意的一点就是在webpack.config.js文件里面，如果配置了output的publicPath这个字段的值的话，在index.html文件里面也应该做出调整。因为webpack-dev-server伺服的文件是相对publicPath这个路径的。因此，如果你的webpack.config.js配置成这样的：
+```
+  module.exports = {
+        entry: './src/js/index.js',
+        output: {
+            path: './dist/js',
+            filename: 'bundle.js'，
+            publicPath: '/assets/'
+        }
+    }
+```
+那么，在index.html文件当中引入的路径也发生相应的变化:
+```
+ <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Demo</title>
+    </head>
+    <body>
+        <script src="assets/bundle.js"></script>
+    </body>
+    </html>
+```
+如果在webpack.config.js里面没有配置output的publicPath的话，那么index.html最后引入的文件js文件路径应该是下面这样的。
+```
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Demo</title>
+    </head>
+    <body>
+        <script src="bundle.js"></script>
+    </body>
+    </html>
+```
 默认支持两种模式的自动刷新
 
 - Iframe mode
