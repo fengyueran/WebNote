@@ -1,3 +1,6 @@
-插件，比loader更强大，能使用更多webpack的api
+plugins是webpack中和loader同等地位的组成部分，他可以对我们生成的文件或者我们需要怎样生成文件进行跟细致化的处理。
 
-插件一般都是用于输出bundle的node模块。例如，uglifyJSPlugin获取bundle.js然后压缩和混淆内容以减小文件体积。类似的extract-text-webpack-plugin内部使用css-loader和style-loader来收集所有的css到一个地方最终将结果提取结果到一个独立的”styles.css“文件，并且在html里边引用style.css文件。
+```
+new webpack.optimize.CommonsChunkPlugin("commons", "javascripts/commons.js")
+```
+该插件可以对entry中入口文件中的共同部分进行分离，达到在不同页面中可以共用同一套commons.js，利用缓存减少文件从服务器中获取。
