@@ -91,13 +91,14 @@ indexA: ['./app/index.js']
 ```
 
 entry：数组类型
-但是，如果你想添加多个彼此不互相依赖的文件，你可以使用数组格式的值。将加载数组中的所有模块，但以最后一个模块作为输出
+但是，如果你想添加多个彼此不互相依赖的文件，你可以使用数组格式的值。将加载数组中的所有模块，但以最后一个模块作为输出.
 
 
 
 ```
 var path = require('path')
 module.exports = {
+  //只输出pageB.js内容
   entry: ['./pageA.js', './pageB.js'],
   output:{
           filename: '[name].bundle.js',
