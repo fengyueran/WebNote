@@ -56,3 +56,21 @@ const MyComponent = (props) => {
 你也可以用一个 key 值作为属性，子元素作为属性值的对象字面量来显示子元素列表，虽然这种用法的场景有限，参见Keyed Fragments，但是在这种情况下要注意生成的子元素重新渲染后在 DOM 中显示的顺序问题。+
 
 实际上浏览器在遍历一个字面量对象的时候会保持顺序一致，除非存在属性值可以被转换成整数值，这种属性值会排序并放在其他属性之前被遍历到，所以为了防止这种情况发生，可以在构建这个字面量的时候在 key 值前面加字符串前缀，比如：
+```
+render() {
+  var items = {};
+
+  this.props.results.forEach((result) => {
+    // If result.id can look like a number (consider short hashes), then
+    // object iteration order is not guaranteed. In this case, we add a prefix
+    // to ensure the keys are strings.
+    items['result-' + result.id] = <li>{result.text}</li>;
+  });
+
+  return (
+    <ol>
+      {items}
+    </ol>
+   );
+}
+```
