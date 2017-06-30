@@ -2,7 +2,13 @@
 ```
 npm install --dave-dev webpack
 ```
-
+添加webpack.config.js文件
+```
+```
+安装browser-sync
+```
+npm install --save-dev browser-sync
+```
 - 安装babel-cli
 ```
  npm install --dave-dev babel-cli
