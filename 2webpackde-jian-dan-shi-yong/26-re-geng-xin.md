@@ -107,6 +107,7 @@ webpack-dev-server --inline --hot
 - 由于webpack-dev-server的配置中无inline选项,我们需要添加webpack-dev-server/client?http://«path»:«port»/到webpack配置的entry入口点中.
 - 将webpack/hot/dev-server添加到webpack配置的entry入口点中
 
+添加webpack-dev-server.js：
 ```
 import webpack from 'webpack';
 import config from './webpack-dev-server.config.js';
@@ -150,6 +151,10 @@ module.exports = {
     	new webpack.HotModuleReplacementPlugin()
     ]
 };
+```
+运行
+```
+babel-node webpack-dev-server.js
 ```
 
 **2.webpack-dev-middleware**
