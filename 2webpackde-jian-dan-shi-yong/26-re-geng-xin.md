@@ -156,7 +156,7 @@ module.exports = {
 ```
 babel-node webpack-dev-server.js
 ```
-
+可实现热更新。
 **2.webpack-dev-middleware**
 
 webpack-dev-middleware是一个处理静态资源的middleware。前面说的webpack-dev-server，实际上是一个小型Express服务器，它也是用webpack-dev-middleware来处理webpack编译后的输出。
