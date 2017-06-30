@@ -114,6 +114,27 @@ module.exports = {
         },
 };
 ``` 
+entry：对象类型
+现在，假设你的应用是多页面的（multi-page application）而不是SPA，有多个html文件（index.html和profile.html）。然后你通过一个对象告诉Webpack为每一个html生成一个bundle文件。
+```
+var path = require('path')
+module.exports = {
+  entry:{
+    pageA: './pageA.js',
+    pageB: './pageB.js',
+  },
+  output:{
+          filename: '[name].bundle.js',
+          path: path.join(__dirname, "/dist"),
+        },
+  resolve: {
+          //resolve 指定可以被 import 的文件后缀
+           extensions: ['.js', '.jsx']
+        },
+};
+``` 
+
+
 
 
 **output**
