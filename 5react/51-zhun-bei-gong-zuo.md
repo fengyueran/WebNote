@@ -1,3 +1,8 @@
+- 安装eslint
+```
+npm install --dave-dev eslint
+```
+
 - 安装webpack
 ```
 npm install --dave-dev webpack
