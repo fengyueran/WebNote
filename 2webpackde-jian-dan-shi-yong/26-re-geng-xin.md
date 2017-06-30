@@ -85,11 +85,14 @@ webpack-dev-server其中部分功能就能克服上面的2个问题。webpack-de
     </body>
     </html>
 ```
+**Automatic Refresh:**
 默认支持两种模式的自动刷新
 
 - Iframe mode
 - Inline mode
 
+这2种模式配置的方式和访问的路径稍微有点区别，最主要的区别还是Iframe mode是在网页中嵌入了一个iframe，将我们自己的应用注入到这个iframe当中去，因此每次你修改的文件后，都是这个iframe进行了reload。
+两种模式都支持热模块替换(Hot Module Replacement).热模块替换的好处是只替换更新的部分,而不是页面重载.
 启用Inline mode的热更新很简单，执行如下即可
 ```
 webpack-dev-server --inline --hot
