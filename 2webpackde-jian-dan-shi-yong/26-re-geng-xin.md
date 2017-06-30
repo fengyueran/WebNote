@@ -168,71 +168,9 @@ babel-node webpack-dev-server.js
 ```
 可实现热更新。
 
-**2.webpack-dev-middleware**
-
-webpack-dev-middleware是一个处理静态资源的middleware。前面说的webpack-dev-server，实际上是一个小型Express服务器，它也是用webpack-dev-middleware来处理webpack编译后的输出。
-比起直接编译，webpack-dev-middleware 多了一些好处:
-
-- 不需要一直写入磁盘，所有产生的结果会直接存在内存
-- 在监视模式(watch mode)下如果发生更改，middleware 会马上停止提供旧版的 bundle 並且会延迟请求的回应直到编译完成
 
 
-
-webpack-hot-middleware是一个结合webpack-dev-middleware使用的middleware，它可以实现浏览器的无刷新更新（hot reload）。这也是webpack文档里常说的HMR（Hot Module Replacement）。
-我们都知道 webpack dev server 有提供一种Hot Module Replacement/Hot Reloading 热替换的功能。在一般 webpack-dev-server 的时候我们会在 webpack.config.js 加入 new webpack.HotModuleReplacementPlugin() 来启用。
-
-就是讓我們在一般的 server 上加上熱替換的功能，總結來說就是 webpack-dev-middleware + webpack-hot-middleware 即可讓我們用 express 客製一個有熱替換功能的 webpack 開發伺服器。
-webpack配置文件部分:
-
-```
-import path from 'path';
-import webpack from 'webpack';
-// reload=true 的意思是，如果碰到不能hot reload的情况，就整页刷新。
-const hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';
-// __dirname是当前运行的js所在的目录
-import path from 'path';
-import webpack from 'webpack';
-// reload=true 的意思是，如果碰到不能hot reload的情况，就整页刷新。
-const publicPath = 'http://localhost:3000/';
-const hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';
-// __dirname是当前运行的js所在的目录
-export default {
-  entry: [
-    hotMiddlewareScript,
-    path.join(__dirname, '/app/index.js'),
-  ],
-  output: {
-    filename: 'bundle.js',
-    path: `${__dirname}/dist`,
-    publicPath,
-  },
-  devtool: 'source-map',
-  resolve: {
-          // resolve 指定可以被 import 的文件后缀
-    extensions: ['.js', '.jsx'],
-  },
-  module: {
-    // loaders是一个数组，每个元素都用来指定loader
-    loaders: [{
-      test: /\.(jsx|js)$/, // test值为正则表达式，当文件路径匹配时启用
-      loaders: ['babel-loader', 'eslint-loader'], // 指定使用什么loader，可以用字符串，也可以用数组
-      exclude: /regexp/, //可以使用exclude来排除一部分文件
-    }],
-
-  },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
-  ],
-};
-
-
-```
-在这个配置文件中，还有一个要点是publicPath不是/这样的值，而是http://localhost:3000/这样的绝对地址。这是因为，在使用?sourceMap的时候，style-loader会把css的引入做成这样：
-![](/2webpackde-jian-dan-shi-yong/26-1.png)
-这种blob的形式可能会使得css里的url()引用的图片失效，因此建议用带http的绝对地址（这也只有开发环境会用到）。有关这个问题的详情，你可以查看github上的[issue][1]。
-
-**使用browserSync热更新**
+**2.使用browserSync热更新**
 配置
 ```
 /* eslint-disable */
@@ -278,7 +216,16 @@ browserSync({
   ],
 });
 ```
+webpack-dev-middleware：
+是一个处理静态资源的middleware。前面说的webpack-dev-server，实际上是一个小型Express服务器，它也是用webpack-dev-middleware来处理webpack编译后的输出。
+比起直接编译，webpack-dev-middleware 多了一些好处:
 
-[demo地址][2]
-[1]:https://github.com/webpack-contrib/style-loader/issues/55
-[2]:https://github.com/fengyueran/WebPackDemo.git
+- 不需要一直写入磁盘，所有产生的结果会直接存在内存
+- 在监视模式(watch mode)下如果发生更改，middleware 会马上停止提供旧版的 bundle 並且会延迟请求的回应直到编译完成
+
+webpack-hot-middleware：
+是一个结合webpack-dev-middleware使用的middleware，它可以实现浏览器的无刷新更新（hot reload）。这也是webpack文档里常说的HMR（Hot Module Replacement）。
+
+
+[demo地址][1]
+[1]:https://github.com/fengyueran/WebPackDemo.git
