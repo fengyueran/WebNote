@@ -16,6 +16,11 @@ npm install --dave-dev eslint-loader
 "extends": "airbnb",
 }
 ```
+安装eslint-config-airbnb
+```
+npm install --save-dev eslint-config-airbnb
+```
+
 - 安装webpack
 ```
 npm install --dave-dev webpack
@@ -42,6 +47,10 @@ npm install --save-dev webpack-hot-middleware
 ```
  npm install --dave-dev babel-cli
 ```
+安装babel-loader
+```
+ npm install --dave-dev babel-loader
+```
 添加.bablerc文件
 ```
 {
@@ -60,4 +69,12 @@ $ npm install --save-dev babel-preset-react
 ES7不同阶段语法提案的转码规则（共有4个阶段），选装一个
 ```
 $ npm install --save-dev babel-preset-stage-1
+```
+- 安装react
+```
+npm install --save react
+```
+安装react-dom
+```
+npm install --save react-dom
 ```
