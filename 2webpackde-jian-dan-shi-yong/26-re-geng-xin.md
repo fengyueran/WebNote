@@ -80,7 +80,9 @@ webpack-dev-middleware是一个处理静态资源的middleware。前面说的web
 
 
 webpack-hot-middleware是一个结合webpack-dev-middleware使用的middleware，它可以实现浏览器的无刷新更新（hot reload）。这也是webpack文档里常说的HMR（Hot Module Replacement）。
+我们都知道 webpack dev server 有提供一种Hot Module Replacement/Hot Reloading 热替换的功能。在一般 webpack-dev-server 的时候我们会在 webpack.config.js 加入 new webpack.HotModuleReplacementPlugin() 来启用。
 
+就是讓我們在一般的 server 上加上熱替換的功能，總結來說就是 webpack-dev-middleware + webpack-hot-middleware 即可讓我們用 express 客製一個有熱替換功能的 webpack 開發伺服器。
 webpack配置文件部分:
 
 ```
