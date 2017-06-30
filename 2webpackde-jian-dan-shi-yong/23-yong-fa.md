@@ -127,10 +127,6 @@ module.exports = {
           filename: '[name].bundle.js',
           path: path.join(__dirname, "/dist"),
         },
-  resolve: {
-          //resolve 指定可以被 import 的文件后缀
-           extensions: ['.js', '.jsx']
-        },
 };
 ``` 
 
