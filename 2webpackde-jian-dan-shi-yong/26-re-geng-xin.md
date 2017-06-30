@@ -106,6 +106,7 @@ webpack-dev-server --inline --hot
 2 当以Node.js API启动webpack-dev-server时,我们也需要做两点:
 - 由于webpack-dev-server的配置中无inline选项,我们需要添加webpack-dev-server/client?http://«path»:«port»/到webpack配置的entry入口点中.
 - 将webpack/hot/dev-server添加到webpack配置的entry入口点中
+
 ```
 import webpack from 'webpack';
 import config from './webpack-dev-server.config.js';
