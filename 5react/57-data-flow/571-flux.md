@@ -88,9 +88,11 @@ var TodoActions = {
 ```
 AppDispatcher 直接继承自 Dispatcher.js，在这个简单的例子中没有提供什么额外的功能。TodoConstants 定义了动作的类型名称常量。
 类似 create、updateText 就是 action creator，这两个动作会通过 View 上的用户交互触发（比如输入框）。 除了用户交互会创建动作，服务端接口调用也可以用来创建动作，比如通过 Ajax 请求的一些初始数据也可以创建动作提供给 dispatcher，再分发给 store 使用这些初始数据。
-action creators are nothing more than a call into the dispatcher.
+>action creators are nothing more than a call into the dispatcher.
+
 可以看到所谓动作就是用来封装传递数据的，动作只是一个简单的对象，包含两部分：payload（数据）和 type（类型），type 是一个字符串常量，用来标识动作。
-Store
+
+**Store**
 
 Stores 包含应用的状态和逻辑，不同的 Store 管理应用中不同部分的状态。如 stores/TodoStore.js
 var AppDispatcher = require('../dispatcher/AppDispatcher');
