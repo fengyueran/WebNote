@@ -126,12 +126,18 @@ module.exports = {
     pageB: './pageB.js',
   },
   output:{
-          filename: '[name].bundle.js',
+          filename: '[name].js',
           path: path.join(__dirname, "/dist"),
         },
 };
 ``` 
-
+用法：
+```
+//profile.html
+<script src=”dist/pageA.js”></script>
+//index.html
+<script src=”dist/pageB.js”></script>
+```
 
 
 
