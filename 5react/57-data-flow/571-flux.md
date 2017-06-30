@@ -24,8 +24,9 @@ Flux 是 Facebook 使用的一套前端应用的架构模式。
 Action -> Dispatcher -> Store -> View
 ```
 更多时候 View 会通过用户交互触发 Action，所以一个简单完整的数据流类似这样：
-flux overview
 
+flux overview
+![](/assets/5.7.1-1.png)
 整个流程如下：
 首先要有 action，通过定义一些 action creator 方法根据需要创建 Action 提供给 dispatcher
 View 层通过用户交互（比如 onClick）会触发 Action
