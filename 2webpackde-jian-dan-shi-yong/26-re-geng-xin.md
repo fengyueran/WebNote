@@ -86,7 +86,10 @@ webpack-dev-server其中部分功能就能克服上面的2个问题。webpack-de
     </html>
 ```
 **Automatic Refresh:**
-默认支持两种模式的自动刷新
+在实际开发中，我们往往有以下需求：
+1、每次修改代码后，webpack可以自动重新打包
+2、浏览器可以响应代码变化并自动刷新
+webpack-dev-server提供了两种自动刷新模式：
 
 - Iframe mode
 - Inline mode
