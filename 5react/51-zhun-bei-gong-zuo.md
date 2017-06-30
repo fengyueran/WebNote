@@ -2,6 +2,12 @@
 ```
 npm install --dave-dev eslint
 ```
+安装eslint-loder
+```
+npm install --dave-dev eslint-loader
+```
+
+
 
 - 安装webpack
 ```
