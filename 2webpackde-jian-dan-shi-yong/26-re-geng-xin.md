@@ -98,7 +98,8 @@ webpack-dev-server提供了两种自动刷新模式：
 两种模式都支持热模块替换(Hot Module Replacement).热模块替换的好处是只替换更新的部分,而不是页面重载.
 
 **iframe模式**
-使用这种模式不需要额外的配置,只需要以下面这种URL格式访问即可
+页面被嵌套在一个iframe下，代码发生改动后，iframe会重新加载
+使用此模式无需额外配置，只需访问http://localhost:8080/webpack-dev-server/index.html即可，显然webpack-dev-server默认的模式就是iframe。
 
 http://«host»:«port»/webpack-dev-server/«path»
 例如:http://localhost:8080/webpack...
