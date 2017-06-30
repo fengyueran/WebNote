@@ -94,7 +94,20 @@ path
 ```
 path: './dist',
 ```
+ webpack打包后，生成的js文件，css文件，字符文件，图片文件会打包放在path字段所指定的文件目录中。
  
+** filename**
+```
+entry: {
+    indexA: ['./assets/javascripts/index.js']
+},
+output: {
+    path: './build/public',
+    publicPath: '/',
+    filename: '/javascripts/[name].js'
+}
+```
+
 **可以多入口文件**
 为了使用多入口文件，你可以给entry传入一个对象。对象的key代表入口点名字，value代表入口点。当使用多入口点的时候，需要重载output.filename，否责每个入口点都写入到同一个输出文件里面了。使用[name]来得到入口点名字。
 ```
