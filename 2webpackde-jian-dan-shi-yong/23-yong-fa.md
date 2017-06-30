@@ -93,7 +93,7 @@ indexA: ['./app/index.js']
 entry：数组类型
 但是，如果你想添加多个彼此不互相依赖的文件，你可以使用数组格式的值。
 
-为了使用多入口文件，你可以给entry传入一个对象。对象的key代表入口点名字，value代表入口点。当使用多入口点的时候，需要重载output.filename，否责每个入口点都写入到同一个输出文件里面了。使用[name]来得到入口点名字。
+
 ```
 var path = require('path')
 module.exports = {
@@ -115,7 +115,9 @@ module.exports = {
 };
 ``` 
 entry：对象类型
-现在，假设你的应用是多页面的（multi-page application）而不是SPA，有多个html文件（index.html和profile.html）。然后你通过一个对象告诉Webpack为每一个html生成一个bundle文件。
+现在，假设你的应用是多页面的（multi-page application）而不是SPA，有多个html文件（index.html和profile.html）。然后你通过一个对象告诉Webpack为每一个html生成一个bundle文件。当使用多入口点的时候，需要重载output.filename，否责每个入口点都写入到同一个输出文件里面了。使用[name]来得到入口点名字。
+
+
 ```
 var path = require('path')
 module.exports = {
