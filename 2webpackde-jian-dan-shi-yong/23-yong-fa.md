@@ -64,7 +64,16 @@ alias: {
 
 ```
 webpack的alias的作用，通过key，value的形式，将模块名和路径对应起来，不管是相对路径还是绝对路径，因此，在模块引用的时候，利用require引用的模块可以不用通过相对路径或者绝对路径的方式，而是直接通过require('模块名')的方式进行引用。
+ extensions：
+ 很多Webpack的配置文件都有一个resolve属性，然后就像下面代码所示有一个空字符串的值。空字符串在此是为了resolve一些在import文件时不带文件扩展名的表达式，如require('./myJSFile')或者import myJSFile from './myJSFile'（译者注：实际就是自动添加后缀，默认是当成js文件来查找路径）
 
+```
+{
+ resolve: {
+   extensions: ['', '.js', '.jsx']
+ }
+}
+```
 **entry**
 Entry配置项告诉Webpack应用的根模块或起始点在哪里，它的值可以是字符串、数组或对象。这看起来可能令人困惑，因为不同类型的值有着不同的目的。
 像绝大多数app一样，倘若你的应用只有一个单一的入口，entry项的值你可以使用任意类型，最终输出的结果都是一样的。
