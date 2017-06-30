@@ -118,7 +118,15 @@ webpack --module-bind jade --module-bind 'css=style!css'
 ````
 使用--module-bind指定loader，如果后缀和loader一样，直接写就好了，比如jade表示.jade文件用jade-loader处理，如果不一样，则需要显示指定，如css=style!css表示分别使用css-loader和style-loader处理.css文件。
 
-
+**常用loader**
+- babel-loader 
+```
+ loaders: [
+            { test: /\.js|jsx$/, loaders: ['babel'] }
+        ]
+```
+ 编译后缀名为 .js 或者 .jsx 的文件，这样你就可以在这两种  
+ 类型的文件中自由使用 JSX 和 ES6 了。
 
 [demo地址][1]
 
