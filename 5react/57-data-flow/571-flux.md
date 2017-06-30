@@ -28,28 +28,34 @@ Action -> Dispatcher -> Store -> View
 flux overview
 ![](/assets/5.7.1-1.png)
 整个流程如下：
-首先要有 action，通过定义一些 action creator 方法根据需要创建 Action 提供给 dispatcher
-View 层通过用户交互（比如 onClick）会触发 Action
-Dispatcher 会分发触发的 Action 给所有注册的 Store 的回调函数
-Store 回调函数根据接收的 Action 更新自身数据之后会触发一个 change 事件通知 View 数据更改了
-View 会监听这个 change 事件，拿到对应的新数据并调用 setState 更新组件 UI
+- 首先要有 action，通过定义一些 action creator 方法根据需要创建 Action 提供给 dispatcher
+- View 层通过用户交互（比如 onClick）会触发 Action
+- Dispatcher 会分发触发的 Action 给所有注册的 Store 的回调函数
+- Store 回调函数根据接收的 Action 更新自身数据之后会触发一个 change 事件通知 View 数据更改了
+- View 会监听这个 change 事件，拿到对应的新数据并调用 setState 更新组件 UI
+
 所有的状态都由 Store 来维护，通过 Action 传递数据，构成了如上所述的单向数据流循环，所以应用中的各部分分工就相当明确，高度解耦了。
 这种单向数据流使得整个系统都是透明可预测的。
-Dispatcher
+
+
+**Dispatcher**
 
 一个应用只需要一个 dispatcher 作为分发中心，管理所有数据流向，分发动作给 Store，没有太多其他的逻辑（一些 action creator 方法也可以放到这里）。
 Dispatcher 分发动作给 Store 注册的回调函数，这和一般的订阅/发布模式不同的地方在于：
-回调函数不是订阅到某一个特定的事件/频道，每个动作会分发给所有注册的回调函数
-回调函数可以指定在其他回调之后调用
+- 回调函数不是订阅到某一个特定的事件/频道，每个动作会分发给所有注册的回调函数
+- 回调函数可以指定在其他回调之后调用
+
 基于 Flux 的架构思路，Dispatcher.js 提供的 API 很简单：
-register(function callback): string 注册回调函数，返回一个 token 供在 waitFor() 使用
-unregister(string id): void 通过 token 移除回调
-waitFor(array ids): void 在指定的回调函数执行之后才执行当前回调。这个方法只能在分发动作的回调函数中使用
-dispatch(object payload): void 分发动作 payload 给所有注册回调
-isDispatching(): boolean 返回 Dispatcher 当前是否处在分发的状态
+- register(function callback): string 注册回调函数，返回一个 token 供在 waitFor() 使用
+- unregister(string id): void 通过 token 移除回调
+- waitFor(array ids): void 在指定的回调函数执行之后才执行当前回调。这个方法只能在分发动作的回调函数中使用
+- dispatch(object payload): void 分发动作 payload 给所有注册回调
+- isDispatching(): boolean 返回 Dispatcher 当前是否处在分发的状态
+
 dispatcher 只是一个粘合剂，剩余的 Store、View、Action 就需要按具体需求去实现了。
 接下来结合 flux-todomvc 这个简单的例子，提取其中的关键部分，看一下实际应用中如何衔接 Flux 整个流程，希望能对 Flux 各个部分有更直观深入的理解。
-Action
+
+**Action**
 
 首先要创建动作，通过定义一些 action creator 方法来创建，这些方法用来暴露给外部调用，通过 dispatch 分发对应的动作，所以 action creator 也称作 dispatcher helper methods 辅助 dipatcher 分发。 参见 actions/TodoActions.js
 var AppDispatcher = require('../dispatcher/AppDispatcher');
