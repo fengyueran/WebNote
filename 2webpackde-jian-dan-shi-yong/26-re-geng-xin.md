@@ -104,17 +104,22 @@ inline模式下我们访问的URL不用发生变化,启用这种模式分两种�
 webpack-dev-server --inline --hot
 ```
 2 当以Node.js API启动webpack-dev-server时,我们也需要做两点:
+- 由于webpack-dev-server的配置中无inline选项,我们需要添加webpack-dev-server/client?http://«path»:«port»/到webpack配置的entry入口点中.
+- 将<script src="http://localhost:8080/webpack-dev-server.js"></script>添加到html文件中
 
-这里在说下通过node api的形式开启热更新其实本质是一样的，只不过命令行形式帮我们做了处理，代码如下
 ```
-var config = require("./webpack.config.js");
+import webpack from 'webpack';
+import config from './webpack-dev-server.config.js';
+import WebpackDevServer from 'webpack-dev-server';
+
 config.entry.app.unshift("webpack-dev-server/client?http://localhost:8080/", "webpack/hot/dev-server");
 var compiler = webpack(config);
 var server = new webpackDevServer(compiler, {
   hot: true,
-  publicPath: "/assets/",
+  publicPath: "./",
 });
 server.listen(8080);
+
 ```
 同时需要添加
 new webpack.HotModuleReplacementPlugin() 插件到webpack config里
