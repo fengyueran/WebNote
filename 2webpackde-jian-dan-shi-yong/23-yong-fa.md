@@ -28,7 +28,7 @@ module.exports = {
  module.exports = {
    entry: "./example1/entry.js",//入口文件
    output: {
-      path: __dirname,//刷出地址
+      path: __dirname,//输出地址，必须是绝对地址
       filename: "bundle.js" //输出文件名
       publicPath: './',//网站运行时的访问路径 
 },
