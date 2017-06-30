@@ -4,17 +4,15 @@ npm install --dave-dev webpack
 ```
 添加webpack.config.js文件
 ```
+1
 ```
 安装browser-sync
 ```
 npm install --save-dev browser-sync
 ```
 安装webpack-hot-middleware
-
-
 ```
 npm install --save-dev webpack-hot-middleware
-
 ```
 
 
