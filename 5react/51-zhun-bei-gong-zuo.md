@@ -9,6 +9,15 @@ npm install --dave-dev webpack
 ```
 npm install --save-dev browser-sync
 ```
+安装webpack-hot-middleware
+
+
+```
+npm install --save-dev webpack-hot-middleware
+
+```
+
+
 - 安装babel-cli
 ```
  npm install --dave-dev babel-cli
