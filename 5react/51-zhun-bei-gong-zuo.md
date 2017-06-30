@@ -6,9 +6,16 @@ npm install --dave-dev eslint
 ```
 npm install --dave-dev eslint-loader
 ```
-
-
-
+创建.eslintrc
+```
+{
+"env": {
+  "node": true,
+  "browser": true,
+  },
+"extends": "airbnb",
+}
+```
 - 安装webpack
 ```
 npm install --dave-dev webpack
