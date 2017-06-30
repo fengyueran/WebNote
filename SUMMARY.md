@@ -17,6 +17,7 @@
   * 5.3 属性扩散
   * [5.4 组件的生命周期](5react/54-zu-jian-de-sheng-ming-zhou-qi.md)
   * [5.5 组合组件](5react/55-zu-he-zu-jian.md)
+  * [5.6 组件间通信](5react/56-zu-jian-jian-tong-xin.md)
 * [20.正则表达式](20zheng-ze-biao-da-shi.md)
   * [20.1 正则表达式是什么？](20zheng-ze-biao-da-shi/201-zheng-ze-biao-da-shi-shi-shi-yao-ff1f.md)
 
