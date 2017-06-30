@@ -110,13 +110,15 @@ webpack-dev-server --inline --hot
 ```
 import webpack from 'webpack';
 import config from './webpack-dev-server.config.js';
-import WebpackDevServer from 'webpack-dev-server';
+import webpackDevServer from 'webpack-dev-server';
 
-config.entry.app.unshift("webpack-dev-server/client?http://localhost:8080/", "webpack/hot/dev-server");
+config.entry.app.unshift("webpack-dev-server/client?http://localhost:8080", "webpack/hot/dev-server");
 var compiler = webpack(config);
 var server = new webpackDevServer(compiler, {
   hot: true,
-  publicPath: "./",
+  contentBase: "./src",//默认根目录是在webpack.config同一级的目录，去此目录寻找index.html
+  // publicPath: "./",
+
 });
 server.listen(8080);
 
