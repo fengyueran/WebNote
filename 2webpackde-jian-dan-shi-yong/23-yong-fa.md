@@ -51,8 +51,47 @@ module.exports = {
      ]
    }
 };
-
  ```
+ 
+ **resolve:**
+alias:
+```
+alias: {
+              AppStore : 'js/stores/AppStores.js',//后续直接 require('AppStore') 即可
+              ActionType : 'js/actions/ActionType.js',
+              AppAction : 'js/actions/AppAction.js'
+     }
+
+```
+webpack的alias的作用，通过key，value的形式，将模块名和路径对应起来，不管是相对路径还是绝对路径，因此，在模块引用的时候，利用require引用的模块可以不用通过相对路径或者绝对路径的方式，而是直接通过require('模块名')的方式进行引用。
+
+**entry**
+入口文件，通过key，value的方式，确定入口文件的文件名及其对应的文件路径。
+
+什么是入口文件呢？在webpack中，所有的js文件都可以通过一个js文件进行引用，如下面的例子那样：
+```
+/**
+* index.js
+*/
+require('moduleA');
+require('../moduleB');
+require('../index.less');
+
+var $ = require('jquery');
+```
+```
+/**
+* webpack.config.js
+*/
+{
+    entry: {
+        indexA: ['./app/index.js']
+    }
+}
+```
+
+
+ 
 **可以多入口文件**
 为了使用多入口文件，你可以给entry传入一个对象。对象的key代表入口点名字，value代表入口点。当使用多入口点的时候，需要重载output.filename，否责每个入口点都写入到同一个输出文件里面了。使用[name]来得到入口点名字。
 ```
