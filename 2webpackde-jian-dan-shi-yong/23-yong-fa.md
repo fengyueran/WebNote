@@ -155,7 +155,8 @@ path
 path: './dist',
 ```
  webpack打包后，生成的js文件，css文件，字符文件，图片文件会打包放在path字段所指定的文件目录中。
- 
+publicPath: 网站运行时的访问路径
+
 ** filename**
 ```
 entry: {
