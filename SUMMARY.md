@@ -13,6 +13,7 @@
 * [4.eslint的简单使用](4eslintde-jian-dan-shi-yong.md)
 * [5.react](5react.md)
   * [5.1 准备工作](5react/51-zhun-bei-gong-zuo.md)
+  * 5.2 使用JSX
 * [20.正则表达式](20zheng-ze-biao-da-shi.md)
   * [20.1 正则表达式是什么？](20zheng-ze-biao-da-shi/201-zheng-ze-biao-da-shi-shi-shi-yao-ff1f.md)
 
