@@ -203,7 +203,13 @@ var TodoApp = React.createClass({
 
 一个 View 可能关联多个 Store 来管理不同部分的状态，得益于 React 更新 View 如此简单（setState），复杂的逻辑都被 Store 隔离了。
 
-更多资料
+**更多资料**
 
-Flux chat 很简洁明了的一个 Slide
-flux-chat source code 一个更复杂一点的例子
+[Flux chat][1] 很简洁明了的一个 Slide
+[flux-chat][2] source code 一个更复杂一点的例子
+
+
+[1]:https://speakerdeck.com/fisherwebdev/fluxchat
+[2]:https://github.com/facebook/flux/tree/master/examples/flux-chat/js
+
+
