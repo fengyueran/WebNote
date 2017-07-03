@@ -95,7 +95,9 @@ AppDispatcher 直接继承自 Dispatcher.js，在这个简单的例子中没有�
 
 **Store**
 
-Stores 包含应用的状态和逻辑，不同的 Store 管理应用中不同部分的状态。如 stores/TodoStore.js
+Stores 包含应用的状态和逻辑，不同的 Store 管理应用中不同部分的状态。如 
+```
+stores/TodoStore.js
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var EventEmitter = require('events').EventEmitter;
 var TodoConstants = require('../constants/TodoConstants');
@@ -156,11 +158,15 @@ AppDispatcher.register(function(action) {
       break;
   }
 });
+```
 在 Store 注册给 dispatcher 的回调函数中会接受到分发的 action，因为每个 action 都会分发给所有注册的回调，所以回调函数里面要判断这个 action 的 type 并调用相关的内部方法处理更新 action 带过来的数据（payload），再通知 view 数据变更。
 Store 里面不会暴露直接操作数据的方法给外部，暴露给外部调用的方法都是 Getter 方法，没有 Setter 方法，唯一更新数据的手段就是通过在 dispatcher 注册的回调函数。
-View
 
-View 就是 React 组件，从 Store 获取状态（数据），绑定 change 事件处理。如 components/TodoApp.react.js
+**View**
+
+View 就是 React 组件，从 Store 获取状态（数据），绑定 change 事件处理。如 
+```
+components/TodoApp.react.js
 var React = require('react');
 var TodoStore = require('../stores/TodoStore');
 
@@ -193,7 +199,10 @@ var TodoApp = React.createClass({
     this.setState(getTodoState());
   }
 });
+```
+
 一个 View 可能关联多个 Store 来管理不同部分的状态，得益于 React 更新 View 如此简单（setState），复杂的逻辑都被 Store 隔离了。
+
 更多资料
 
 Flux chat 很简洁明了的一个 Slide
