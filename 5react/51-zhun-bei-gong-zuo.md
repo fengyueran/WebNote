@@ -25,15 +25,16 @@ npm install --save-dev eslint-config-airbnb
 ```
 npm install --dave-dev webpack
 ```
-添加webpack.config.js文件
-```
+
+ 添加webpack.config.js文件
+ 
+ ```
 import path from 'path';
 import webpack from 'webpack';
 // reload=true 的意思是，如果碰到不能hot reload的情况，就整页刷新。
 //publicPath设为'/'不热更新
 const publicPath = 'http://localhost:3000/';
 const hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';
-
 export default {
   entry: [
     hotMiddlewareScript,
