@@ -58,30 +58,37 @@ Reducer 也是 pure function，这点非常重要，所以绝对不要在 reduce
 - 调用不纯的函数，比如 Data.now() Math.random()
 
 因为 Redux 里面只有一个 Store，对应一个 State 状态，所以整个 State 对象就是由一个 reducer 函数管理，但是如果所有的状态更改逻辑都放在这一个 reducer 里面，显然会变得越来越巨大，越来越难以维护。得益于纯函数的实现，我们只需要稍微变通一下，让状态树上的每个字段都有一个 reducer 函数来管理就可以拆分成很小的 reducer 了：
+```
 function someApp(state = {}, action) {
   return {
     a: reducerA(state.a, action),
     b: reducerB(state.b, action)
   };
 }
+```
 对于 reducerA 和 reducerB 来说，他们依然是形如：(oldState, action) => newState 的函数，只是这时候的 state 不是整个状态树，而是树上的特定字段，每个 reducer 只需要判断 action，管理自己关心的状态字段数据就好了。
 Redux 提供了一个工具函数 combineReducers 来简化这种 reducer 合并：
+```
 import { combineReducers } from 'redux';
 
 const someApp = combineReducers({
   a: reducerA,
   b: reducerB
 });
+```
 如果 reducer 函数名字和字段名字相同，利用 ES6 的 Destructuring 可以进一步简化成：combineReducers({ a, b })
-象 someApp 这种管理整个 State 的 reducer，可以称为 root reducer。
-Store
+像 someApp 这种管理整个 State 的 reducer，可以称为 root reducer。
+
+**Store**
 
 现在有了 Action 和 Reducer，Store 的作用就是连接这两者，Store 的作用有这么几个：
-Hold 住整个应用的 State 状态树
-提供一个 getState() 方法获取 State
-提供一个 dispatch() 方法发送 action 更改 State
-提供一个 subscribe() 方法注册回调函数监听 State 的更改
+- Hold 住整个应用的 State 状态树
+- 提供一个 getState() 方法获取 State
+- 提供一个 dispatch() 方法发送 action 更改 State
+- 提供一个 subscribe() 方法注册回调函数监听 State 的更改
+
 创建一个 Store 很容易，将 root reducer 函数传递给 createStore 方法即可：
+```
 import { createStore } from 'redux';
 import someApp from './reducers';
 let store = createStore(someApp);
@@ -97,20 +104,26 @@ store.dispatch({ type: 'CHANGE_B', payload: 'Modified b' });
 
 // Stop listening to state updates
 unsubscribe();
-Data Flow
+```
+
+**Data Flow**
 
 以上提到的 store.dispatch(action) -> reducer(state, action) -> store.getState() 其实就构成了一个“单向数据流”，我们再来总结一下。
-1. 调用 store.dispatch(action)
+
+**1. 调用 store.dispatch(action)**
 Action 是一个包含 { type, payload } 的对象，它描述了“发生了什么”，比如：
+```
 { type: 'LIKE_ARTICLE', articleID: 42 }
 { type: 'FETCH_USER_SUCCESS', response: { id: 3, name: 'Mary' } }
 { type: 'ADD_TODO', text: 'Read the Redux docs.' }
+```
 你可以在任何地方调用 store.dispatch(action)，比如组件内部，Ajax 回调函数里面等等。
-2. Action 会触发给 Store 指定的 root reducer
+**2. Action 会触发给 Store 指定的 root reducer**
 root reducer 会返回一个完整的状态树，State 对象上的各个字段值可以由各自的 reducer 函数处理并返回新的值。
-reducer 函数接受 (state, action) 两个参数
-reducer 函数判断 action.type 然后处理对应的 action.payload 数据来更新并返回一个新的 state
-3. Store 会保存 root reducer 返回的状态树
+- reducer 函数接受 (state, action) 两个参数
+- reducer 函数判断 action.type 然后处理对应的 action.payload 数据来更新并返回一个新的 state
+
+**3. Store 会保存 root reducer 返回的状态树**
 新的 State 会替代旧的 State，然后所有 store.subscribe(listener) 注册的回调函数会被调用，在回调函数里面可以通过 store.getState() 拿到新的 State。
 这就是 Redux 的运作流程，接下来看如何在 React 里面使用 Redux。
 
