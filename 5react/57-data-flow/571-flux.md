@@ -15,6 +15,7 @@ Flux 是 Facebook 使用的一套前端应用的架构模式。
 - the actions
 
  提供给 dispatcher 传递数据给 store
+ 
 针对上面提到的 Flux 这些概念，需要写一个简单的类库来实现衔接这些功能，市面上有很多种实现，这里讨论 Facebook 官方的一个实现 Dispatcher.js
 
 **单向数据流**
