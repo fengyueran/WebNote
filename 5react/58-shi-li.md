@@ -1,7 +1,7 @@
 ##Redux实例
 
 以下这张图表示了整个 React Redux App 的资料流程图（使用者与 View 互动 => dispatch 出 Action => Reducers 依据 action tyoe 分配到对应处理方式，回传新的 state => 通过 React Redux 传送给 React，React 重新绘制 View）：
-![](/assets/5.8.1-1.png)
+![](/assets/5.8-1.png)
 
 
 **1. 初始化项目**
@@ -57,4 +57,8 @@ selectors:返回需要的state
 
 ```
 其余配置文件都放到根目录下，.babelrc、.eslintrc、webpack.config.js等的配置参考2、3、4章节。
-![](/assets/5.8.1-2.png)
+![](/assets/5.8-2.png)
+
+**4. 构建组件**
+
+![](/assets/5.8-3.png)
