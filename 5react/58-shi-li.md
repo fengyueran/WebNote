@@ -59,6 +59,23 @@ selectors:返回需要的state
 其余配置文件都放到根目录下，.babelrc、.eslintrc、webpack.config.js等的配置参考2、3、4章节。
 ![](/assets/5.8-2.png)
 
+**4. 构建入口html**
+所有代码都打包到bundle.js
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Redux Todo</title>
+</head>
+<body>
+	<div id="app"></div>
+  <script src='bundle.js'></script>
+</body>
+</html>
+```
+
+
 **4. 构建组件**
 需要构建组件如下图：
 入口组件App下分为四个部分：
