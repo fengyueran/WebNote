@@ -143,5 +143,154 @@ const select = (state) => {
 export default connect(select)(App);
 
 ```
+store更新时会调用select方法。
 
+**AddTodo:**
 
+```
+/* eslint-disable */
+import React, { Component, PropTypes } from 'react';
+
+class AddTodo extends Component {
+ render() {
+   return (
+     <div>
+       <input type='text' ref='input' />
+       <button onClick={(e) => this.handleClick(e)}>
+         Add
+       </button>
+     </div>
+   );
+ }
+
+  handleClick(e) {
+    const node = this.refs.input
+    const text = node.value.trim();
+    this.props.onAddClick(text);
+    node.value = '';
+  }
+}
+
+AddTodo.propTypes = {
+  onAddClick: PropTypes.func.isRequired,
+};
+
+export default AddTodo;
+
+```
+
+**TodoList:**
+```
+/* eslint-disable */
+import React, { Component, PropTypes } from 'react';
+import Todo from './todo';
+
+class TodoList extends Component {
+  render() {
+    const { todos } = this.props
+    return (
+      <ul>
+        {this.props.todos.map((todo, index) =>
+          (<Todo
+            {...todo}
+            key={index}
+            onClick={() => this.props.onTodoClick(index)} />)
+        )}
+      </ul>
+    )
+  }
+}
+
+TodoList.propTypes = {
+  onTodoClick: PropTypes.func.isRequired,
+  todos: PropTypes.arrayOf(PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    completed: PropTypes.bool.isRequired,
+  }).isRequired).isRequired
+};
+
+export default TodoList;
+
+```
+**Footer:**
+```
+/*eslint-disable */
+import React, { Component, PropTypes } from 'react'
+
+class Footer extends Component {
+  renderFilter(filter, name) {
+    if (filter === this.props.filter) {
+      return name
+    }
+
+    return (
+      <a href='#' onClick={e => {
+        e.preventDefault()
+        this.props.onFilterChange(filter)
+      }}>
+        {name}
+      </a>
+    )
+  }
+
+  render() {
+    return (
+      <p>
+        Show:
+        {' '}
+        {this.renderFilter('SHOW_ALL', 'All')}
+        {', '}
+        {this.renderFilter('SHOW_COMPLETED', 'Completed')}
+        {', '}
+        {this.renderFilter('SHOW_ACTIVE', 'Active')}
+        .
+      </p>
+    )
+  }
+}
+
+Footer.propTypes = {
+  onFilterChange: PropTypes.func.isRequired,
+  filter: PropTypes.oneOf([
+    'SHOW_ALL',
+    'SHOW_COMPLETED',
+    'SHOW_ACTIVE'
+  ]).isRequired
+}
+
+export default Footer;
+
+```
+**Card:**
+```
+/* eslint-disable */
+import React, { Component, PropTypes } from 'react';
+import { updateCardData } from '../actions/action';
+
+ class Card extends Component {
+   stateChange() {
+      return this.props.number;
+   }
+  getRandomNum(Min,Max) {
+    var Range = Max - Min;
+    var Rand = Math.random();
+    return(Min + Math.round(Rand * Range));
+  }
+  handleClick() {
+    global.store.dispatch(updateCardData({ number:this.getRandomNum(0,100) }))
+  }
+  render() {
+      return (
+        <button onClick={this.handleClick.bind(this)}>
+            I like the number: {this.stateChange()}.
+        </button>
+      );
+  }
+}
+Card.propTypes = {
+  number: PropTypes.number,
+};
+
+export default Card;
+
+```
