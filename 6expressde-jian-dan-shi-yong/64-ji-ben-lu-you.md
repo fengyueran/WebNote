@@ -34,4 +34,6 @@ app.delete('/user', function (req, res) {
 res.send('Got a DELETE request at /user');
 });
 ```
-更多有关路由的细节，参看 路由指南
+更多有关路由的细节，参看[路由指南][1]
+
+[1]:http://expressjs.com/en/guide/routing.html
