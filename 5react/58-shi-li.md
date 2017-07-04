@@ -311,3 +311,11 @@ const CardContainer = connect(
 export default CardContainer;
 
 ```
+上面的cardSelector：
+```
+const cardSelector = (state) => {
+  return { number: state.cardState.number };
+};
+
+export { cardSelector };
+```
