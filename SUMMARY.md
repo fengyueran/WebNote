@@ -31,7 +31,7 @@
     * [5.8.4 创建reducers](5react/58-shi-li/584-chuang-jian-reducers.md)
     * [5.8.5 构建组件](5react/58-shi-li/585-gou-jian-zu-jian.md)
     * [5.8.6 结果](5react/58-shi-li/586-jie-guo.md)
-* [6. express的简单使用]
+* 6. express的简单使用
 * [20.正则表达式](20zheng-ze-biao-da-shi.md)
   * [20.1 正则表达式是什么？](20zheng-ze-biao-da-shi/201-zheng-ze-biao-da-shi-shi-shi-yao-ff1f.md)
 
