@@ -4,6 +4,7 @@
 $ npm install express-generator -g
 ```
 使用 -h 选项显示所有命令选项
+生成example2
 ```
 $ express example2
 ```
