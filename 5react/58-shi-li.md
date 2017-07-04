@@ -56,5 +56,5 @@ reducers:存放所有reducer
 selectors:返回需要的state
 
 ```
-其余配置文件都放到根目录下。
+其余配置文件都放到根目录下，.babelrc、.eslintrc、webpack.config.js等的配置参考2、3、4章节。
 ![](/assets/5.8.1-2.png)
