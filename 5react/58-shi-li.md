@@ -61,4 +61,11 @@ selectors:返回需要的state
 
 **4. 构建组件**
 需要构建组件如下图：
+分为四个部分：
+```
+1. AddTodo
+2. TodoList
+3. Footer
+4. Card
+```
 ![](/assets/5.8-3.png)
