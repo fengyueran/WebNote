@@ -29,6 +29,7 @@
     * [5.8.2 创建html](5react/58-shi-li/582-chuang-jian-html.md)
     * [5.8.3 构建actions](5react/58-shi-li/583-gou-jianactions.md)
     * [5.8.4 创建reducers](5react/58-shi-li/584-chuang-jian-reducers.md)
+    * [5.8.5 构建组件](5react/58-shi-li/585-gou-jian-zu-jian.md)
 * [20.正则表达式](20zheng-ze-biao-da-shi.md)
   * [20.1 正则表达式是什么？](20zheng-ze-biao-da-shi/201-zheng-ze-biao-da-shi-shi-shi-yao-ff1f.md)
 
