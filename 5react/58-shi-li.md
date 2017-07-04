@@ -47,5 +47,13 @@ $ npm init
 ```
 
 **3. 构建工程目录**
-首先在根目录建立src，放置 script的source。在 components中放置所有 components、containers负责和store 互动取得state，另外还有actions、reducers。
+首先在根目录建立src，放置 script的source。
+```
+actions:存放所有action
+components:存放所有组件
+containers:负责和store互动取得state
+reducers:存放所有reducer
+selectors:
+
+```
 ![](/assets/5.8.1-2.png)
