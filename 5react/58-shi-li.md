@@ -303,7 +303,7 @@ import Card from '../components/card';
 import { cardSelector } from '../selectors/selector';
 
 const mapStateToProps = state => cardSelector;
-
+//store更新调用mapStateToProps
 const CardContainer = connect(
   mapStateToProps,
 )(Card);
