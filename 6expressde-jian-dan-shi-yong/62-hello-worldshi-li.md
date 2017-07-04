@@ -16,8 +16,7 @@ app.listen(8000,function(){
 ```
 应用程序启动了一个服务，并在8000端口监听连接。当请求该服务的根目录 / 时，应用程
 序会返回 Hello World 字符串作为响应。对于其他任意请求路径，则返回 404 Not Found.
-req (request) 和 res (response) 其实是相同的对象，均由 Node.js 提供。所以这两
-个对象的使用方法不受 express 限制，你可以像在node中使用它们一样在express中随
+req (request) 和 res (response) 其实是相同的对象，均由 Node.js 提供。所以这两个对象的使用方法不受 express 限制，你可以像在node中使用它们一样在express中随
 意使用它们。 例如 req.pipe() ， req.on('data',callback) 这样调用。
-最后，确保工作目录是 myapp 目录，在命令行运行 node app.js ,打开浏览器加载
+最后，确保工作目录是example1 目录，在命令行运行 node app.js ,打开浏览器加载
 http://localhost:3000 可以看到熟悉的问候语。
