@@ -35,4 +35,5 @@
   * [20.1 正则表达式是什么？](20zheng-ze-biao-da-shi/201-zheng-ze-biao-da-shi-shi-shi-yao-ff1f.md)
 * [6.express的简单使用](6expressde-jian-dan-shi-yong.md)
   * [6.1 入门指南](6expressde-jian-dan-shi-yong/61-ru-men-zhi-nan.md)
+  * [6.2 Hello World示例](6expressde-jian-dan-shi-yong/62-hello-worldshi-li.md)
 
