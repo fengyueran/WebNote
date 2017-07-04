@@ -14,7 +14,7 @@
 * [5.react](5react.md)
   * [5.1 准备工作](5react/51-zhun-bei-gong-zuo.md)
   * [5.2 使用JSX](5react/52-shi-yong-jsx.md)
-  * 5.3 属性扩散
+  * [5.3 属性扩散](5react/53-shu-xing-kuo-san.md)
   * [5.4 组件的生命周期](5react/54-zu-jian-de-sheng-ming-zhou-qi.md)
   * [5.5 组合组件](5react/55-zu-he-zu-jian.md)
   * [5.6 组件间通信](5react/56-zu-jian-jian-tong-xin.md)
