@@ -44,6 +44,7 @@ browserSync({
   ],
 });
 
-```
+```UI
 **最终效果：**
 ![](/assets/5.8.6.gif)
+单击I like the number=>触发单击事件生成随机数并生成action=>调用 store.dispatch(action)=> Action 会触发给 Store 指定的reducer=>更新state=调用mapStateToProp函数=>更新UI
