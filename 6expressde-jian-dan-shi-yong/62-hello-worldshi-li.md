@@ -19,4 +19,4 @@ app.listen(8000,function(){
 req (request) 和 res (response) 其实是相同的对象，均由 Node.js 提供。所以这两个对象的使用方法不受 express 限制，你可以像在node中使用它们一样在express中随
 意使用它们。 例如 req.pipe() ， req.on('data',callback) 这样调用。
 最后，确保工作目录是example1 目录，在命令行运行 node app.js ,打开浏览器加载
-http://localhost:3000 可以看到熟悉的问候语。
+http://localhost:8000 可以看到熟悉的问候语。
