@@ -37,4 +37,5 @@
   * [6.1 入门指南](6expressde-jian-dan-shi-yong/61-ru-men-zhi-nan.md)
   * [6.2 Hello World示例](6expressde-jian-dan-shi-yong/62-hello-worldshi-li.md)
   * [6.3 Express应用程序生成器](6expressde-jian-dan-shi-yong/63-expressying-yong-cheng-xu-sheng-cheng-qi.md)
+  * [6.4 基本路由](6expressde-jian-dan-shi-yong/64-ji-ben-lu-you.md)
 
