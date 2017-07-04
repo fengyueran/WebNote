@@ -53,7 +53,8 @@ actions:存放所有action
 components:存放所有组件
 containers:负责和store互动取得state
 reducers:存放所有reducer
-selectors:
+selectors:返回需要的state
 
 ```
+其余配置文件都放到根目录下。
 ![](/assets/5.8.1-2.png)
