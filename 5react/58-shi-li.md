@@ -79,7 +79,7 @@ selectors:返回需要的state
 const CORDOVA_DATA = 'CORDOVA_DATA';
 const updateCordovaData = (username, data) => {
   return { type: CORDOVA_DATA, username, data };
-};
+};//类型 + 数据
 
 const CARD_DATA = 'CARD_DATA';
 const updateCardData = (data) => {
