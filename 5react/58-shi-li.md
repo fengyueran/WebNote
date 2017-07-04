@@ -60,5 +60,5 @@ selectors:返回需要的state
 ![](/assets/5.8-2.png)
 
 **4. 构建组件**
-
+需要构建组件如下图：
 ![](/assets/5.8-3.png)
