@@ -14,7 +14,7 @@ app.listen(8000,function(){
    console.log('Example app listening on port 3000.');
 });
 ```
-应用程序启动了一个服务，并在3000端口监听连接。当请求该服务的根目录 / 时，应用程
+应用程序启动了一个服务，并在8000端口监听连接。当请求该服务的根目录 / 时，应用程
 序会返回 Hello World 字符串作为响应。对于其他任意请求路径，则返回 404 Not Found.
 req (request) 和 res (response) 其实是相同的对象，均由 Node.js 提供。所以这两
 个对象的使用方法不受 express 限制，你可以像在node中使用它们一样在express中随
