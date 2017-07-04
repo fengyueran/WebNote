@@ -8,3 +8,7 @@ $ npm install express-generator -g
 ```
 $ express example2
 ```
+![](/assets/6.3.1-1.png)
+
+按照提示进入example2 目录，运行 npm install ,然后在命令行输入 DEBUG=myapp:* npm start
+启动应用。打开 http://localhost:3000 可以看到:
