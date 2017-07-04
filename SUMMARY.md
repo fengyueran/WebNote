@@ -26,6 +26,7 @@
       * [5.7.2.3 和React配合使用](5react/57-data-flow/572-redux/5723-he-react-pei-he-shi-yong.md)
   * [5.8 实例](5react/58-shi-li.md)
     * [5.8.1 准备工作](5react/58-shi-li/581-zhun-bei-gong-zuo.md)
+    * [5.8.2 创建html](5react/58-shi-li/582-chuang-jian-html.md)
 * [20.正则表达式](20zheng-ze-biao-da-shi.md)
   * [20.1 正则表达式是什么？](20zheng-ze-biao-da-shi/201-zheng-ze-biao-da-shi-shi-shi-yao-ff1f.md)
 
