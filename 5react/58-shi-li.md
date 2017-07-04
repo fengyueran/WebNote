@@ -295,7 +295,7 @@ export default Card;
 
 ```
 
-这个Card还需要添加connect方法来生成与Redux store关联起来的新组件，如下：
+这个Card还需要添加connect方法来生成与Redux store关联起来的新组件，如下：在container中
 ```
 import { connect } from 'react-redux';
 
