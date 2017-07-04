@@ -1,5 +1,5 @@
 运行npm start(babel-node server.js) 开启开发环境，启动html
-server.js:
+**server.js:**
 ```
 /* eslint-disable */
 import webpack from 'webpack';
@@ -45,3 +45,5 @@ browserSync({
 });
 
 ```
+**最终效果：**
+![](/assets/5.8.6.gif)
