@@ -79,3 +79,8 @@ response.redirect("/hello/anime");
 response.redirect("http://www.example.com");
 response.redirect(301, "http://www.example.com"); 
 ```
+2）response.sendFile方法
+response.sendFile方法用于发送文件。
+```
+response.sendFile("/public/images/flow.png");
+```
