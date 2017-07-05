@@ -19,3 +19,22 @@ app.use('/', router);
 上面代码先定义了两个访问路径，然后将它们挂载到根目录。如果最后一行改为app.use(‘/app’, router)，则相当于为/app和/app/about这两个路径，指定了回调函数。
 
 这种路由器可以自由挂载的做法，为程序带来了更大的灵活性，既可以定义多个路由器实例，也可以为将同一个路由器实例挂载到多个路径。
+
+**router.route方法**
+router实例对象的route方法，可以接受访问路径作为参数。
+```
+var router = express.Router();
+
+router.route('/api')
+	.post(function(req, res) {
+		// ...
+	})
+	.get(function(req, res) {
+		Bear.find(function(err, bears) {
+			if (err) res.send(err);
+			res.json(bears);
+		});
+	});
+
+app.use('/', router);
+```
