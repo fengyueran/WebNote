@@ -86,3 +86,18 @@ app.get('/', function(req, res){
   res.end(body);
 });
 ```
+2）指定特定路径
+
+上面是处理根目录的情况，下面再举一个例子。假定用户访问/api路径，希望返回一个JSON字符串。这时，get可以这样写。
+```
+app.get('/api', function(request, response) {
+   response.send({name:"张三",age:40});
+});
+```
+上面代码表示，除了发送字符串，send方法还可以直接发送对象。重新启动node以后，再访问路径/api，浏览器就会显示一个JSON对象。
+```
+{
+  "name": "张三",
+  "age": 40
+}
+```
