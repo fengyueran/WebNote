@@ -34,6 +34,22 @@ app.delete('/user', function (req, res) {
 res.send('Got a DELETE request at /user');
 });
 ```
+这时，最好就把路由放到一个单独的文件中，比如新建一个routes子目录。
+```
+// routes/index.js
+
+module.exports = function (app) {
+  app.get('/', function (req, res) {
+    res.send('Hello world');
+  });
+  app.get('/customer', function(req, res){
+    res.send('customer page');
+  });
+  app.get('/admin', function(req, res){
+    res.send('admin page');
+  });
+};
+```
 更多有关路由的细节，参看[路由指南][1]
 
 [1]:http://expressjs.com/en/guide/routing.html
