@@ -156,3 +156,11 @@ app.listen(8000,function(){
    console.log('Example app listening on port 8000.');
 });
 ```
+上面代码中的render方法，现在加入了第二个参数，表示模板变量绑定的数据。
+
+现在重启node服务器，然后访问http://localhost:8000。
+```
+node index.js
+```
+可以看得，模板已经使用加载的数据渲染成功了。
+
