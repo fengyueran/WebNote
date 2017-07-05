@@ -59,3 +59,13 @@ app.listen(app.get('port'));
 node index.js
 ```
 网页提示“Cannot GET /”，表示没有为网站的根路径指定可以显示的内容。所以，下一步就是配置路由。
+
+**配置路由**
+所谓“路由”，就是指为不同的访问路径，指定不同的处理方法。
+1）指定根路径
+在index.js之中，先指定根路径的处理方法。
+```
+app.get('/', function(req, res) {
+   res.send('Hello World');
+});
+```
