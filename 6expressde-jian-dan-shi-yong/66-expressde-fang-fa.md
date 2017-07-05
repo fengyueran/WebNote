@@ -91,4 +91,4 @@ app.get("/", function(request, response) {
   response.render("index", { message: "Hello World" });
 });
 ```
-
+上面代码使用render方法，将message变量传入index模板，渲染成HTML网页。
