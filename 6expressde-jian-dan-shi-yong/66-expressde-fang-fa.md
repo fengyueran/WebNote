@@ -70,3 +70,12 @@ app.set("views", __dirname + "/views");
 app.set("view engine", "jade");
 ```
 上面代码使用set方法，为系统变量“views”和“view engine”指定值。
+
+**response对象**
+1) response.redirect方法
+response.redirect方法允许网址的重定向。
+```
+response.redirect("/hello/anime");
+response.redirect("http://www.example.com");
+response.redirect(301, "http://www.example.com"); 
+```
