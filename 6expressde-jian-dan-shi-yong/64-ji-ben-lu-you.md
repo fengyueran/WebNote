@@ -50,6 +50,14 @@ module.exports = function (app) {
   });
 };
 ```
+然后，原来的index.js就变成下面这样。
+```
+// index.js
+var express = require('express');
+var app = express();
+var routes = require('./routes')(app);
+app.listen(3000);
+```
 更多有关路由的细节，参看[路由指南][1]
 
 [1]:http://expressjs.com/en/guide/routing.html
