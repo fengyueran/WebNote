@@ -78,3 +78,4 @@ app.route('/login')
 		res.send('processing the login form!');
 	});
 ```
+上面代码的这种写法，显然非常简洁清晰。
