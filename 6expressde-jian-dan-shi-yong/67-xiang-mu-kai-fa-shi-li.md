@@ -69,3 +69,20 @@ app.get('/', function(req, res) {
    res.send('Hello World');
 });
 ```
+上面代码的get方法，表示处理客户端发出的GET请求。相应的，还有app.post、app.put、app.del（delete是JavaScript保留字，所以改叫del）方法。
+
+get方法的第一个参数是访问路径，正斜杠（/）就代表根路径；第二个参数是回调函数，它的req参数表示客户端发来的HTTP请求，res参数代表发向客户端的HTTP回应，这两个参数都是对象。在回调函数内部，使用HTTP回应的send方法，表示向浏览器发送一个字符串。然后，运行下面的命令。
+```
+node index.js 
+```
+此时，在浏览器中访问http://localhost:8000，网页就会显示“Hello World”。
+
+如果需要指定HTTP头信息，回调函数就必须换一种写法，要使用setHeader方法与end方法。
+```
+app.get('/', function(req, res){
+  var body = 'Hello World';
+  res.setHeader('Content-Type', 'text/plain');
+  res.setHeader('Content-Length', body.length);
+  res.end(body);
+});
+```
