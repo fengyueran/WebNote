@@ -21,3 +21,4 @@ app.post('/upload', function (req, res) {
     });
 });
 ```
+formidable解析数据后，会将这两种数据分别放到files和fields两个回调参数中。并把上传文件写入uploadDir下。
