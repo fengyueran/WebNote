@@ -50,3 +50,18 @@ router.use(function(req, res, next) {
 上面代码中，回调函数的next参数，表示接受其他中间件的调用。函数体中的next()，表示将数据传递给下一个中间件。
 
 注意，中间件的放置顺序很重要，等同于执行顺序。而且，中间件必须放在HTTP动词方法之前，否则不会执行。
+
+**对路径参数的处理**
+router对象的param方法用于路径参数的处理，可以
+```
+router.param('name', function(req, res, next, name) {
+	// 对name进行验证或其他处理……
+	console.log(name);
+	req.name = name;
+	next();	
+});
+
+router.get('/hello/:name', function(req, res) {
+	res.send('hello ' + req.name + '!');
+});
+```
