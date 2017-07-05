@@ -143,3 +143,25 @@ app.get('/article', function(req, res) {
  
 app.listen(8000);
 ```
+上面代码表示，三个路径分别对应views目录中的三个模板：index.html、about.html和article.html。另外，向服务器发送信息的方法，从send变成了sendfile，后者专门用于发送文件。
+
+假定index.html的内容如下：
+```
+<html>
+<head>
+   <title>首页</title>
+</head>
+ 
+<body>
+<h1>Express Demo</h1>
+ 
+<footer>
+<p>
+   <a href="/">首页</a> - <a href="/about">自我介绍</a> - <a href="/article">文章</a>
+</p>
+</footer>
+ 
+</body>
+</html>
+```
+上面代码是一个静态网页。如果想要展示动态内容，就必须使用动态网页模板。
