@@ -65,3 +65,25 @@ exports.getBlogEntry = function (id){
    }
 }
 ```
+**新建网页模板**
+接着，新建模板文件index.html。
+```
+<!-- views/index.html文件 -->
+
+<h1>文章列表</h1>
+ 
+{{#each entries}}
+   <p>
+      <a href="/article/{{id}}">{{title}}</a><br/>
+      Published: {{published}}
+   </p>
+{{/each}}
+```
+模板文件about.html。
+```
+<!-- views/about.html文件 -->
+
+<h1>自我介绍</h1>
+ 
+<p>正文</p>
+```
