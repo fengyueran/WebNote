@@ -10,9 +10,16 @@ var app = express();
 
 app.use(express.static(__dirname + '/public'));
 
-app.listen(8080);
+app.listen(8000);
 ```
-在 example1目录下，新建 app.js 并添加如下代码:
+然后，运行上面的启动脚本。
+```
+node app.js
+```
+现在就可以访问http://localhost:8000, 它会在浏览器中打开当前目录的public子目录（严格来说，是打开public目录的index.html文件）。如果public目录之中有一个图片文件my_image.png，那么可以用http://localhost:8000/my_image.png访问该文件。
+
+你也可以在app.js之中，生成动态网页。
+在app.js 并添加如下代码:
 ```
 var express = require('express');
 var app = express();
@@ -20,7 +27,7 @@ app.get('/',function(req,res){
    res.send('Hello World!');
 });
 app.listen(8000,function(){
-   console.log('Example app listening on port 3000.');
+   console.log('Example app listening on port 8000.');
 });
 ```
 应用程序启动了一个服务，并在8000端口监听连接。当请求该服务的根目录 / 时，应用程
