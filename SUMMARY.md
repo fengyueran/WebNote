@@ -39,4 +39,5 @@
   * [6.3 Express应用程序生成器](6expressde-jian-dan-shi-yong/63-expressying-yong-cheng-xu-sheng-cheng-qi.md)
   * [6.4 基本路由](6expressde-jian-dan-shi-yong/64-ji-ben-lu-you.md)
   * [6.5 运行原理](6expressde-jian-dan-shi-yong/65-yun-xing-yuan-li.md)
+  * [6.6 Express的方法](6expressde-jian-dan-shi-yong/66-expressde-fang-fa.md)
 
