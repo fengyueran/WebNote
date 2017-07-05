@@ -41,4 +41,5 @@
   * [6.5 运行原理](6expressde-jian-dan-shi-yong/65-yun-xing-yuan-li.md)
   * [6.6 Express的方法](6expressde-jian-dan-shi-yong/66-expressde-fang-fa.md)
   * [6.7 项目开发实例](6expressde-jian-dan-shi-yong/67-xiang-mu-kai-fa-shi-li.md)
+  * [6.8 动态网页模板](6expressde-jian-dan-shi-yong/68-dong-tai-wang-ye-mo-ban.md)
 
