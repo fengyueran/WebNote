@@ -66,3 +66,15 @@ router.get('/hello/:name', function(req, res) {
 });
 ```
 上面代码中，get方法为访问路径指定了name参数，param方法则是对name参数进行处理。注意，param方法必须放在HTTP动词方法之前。
+**app.route**
+假定app是Express的实例对象，Express 4.0为该对象提供了一个route属性。app.route实际上是express.Router()的缩写形式，除了直接挂载到根路径。因此，对同一个路径指定get和post方法的回调函数，可以写成链式形式。
+```
+app.route('/login')
+	.get(function(req, res) {
+		res.send('this is the login form');
+	})
+	.post(function(req, res) {
+		console.log('processing');
+		res.send('processing the login form!');
+	});
+```
