@@ -101,3 +101,19 @@ app.get('/api', function(request, response) {
   "age": 40
 }
 ```
+我们也可以把app.get的回调函数，封装成模块。先在routes目录下面建立一个api.js文件。
+
+```
+// routes/api.js
+
+exports.index = function (req, res){
+  res.json(200, {name:"张三",age:40});
+}
+```
+然后，在app.js中加载这个模块。
+```
+// app.js
+
+var api = require('./routes/api');
+app.get('/api', api.index);
+```
