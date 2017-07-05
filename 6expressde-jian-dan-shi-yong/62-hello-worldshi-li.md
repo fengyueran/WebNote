@@ -7,6 +7,15 @@ Hello World 项目只有一个文件。 Express Generator 会生成一个应用�
 ```
 var express = require('express');
 var app = express();
+
+app.use(express.static(__dirname + '/public'));
+
+app.listen(8080);
+```
+在 example1目录下，新建 app.js 并添加如下代码:
+```
+var express = require('express');
+var app = express();
 app.get('/',function(req,res){
    res.send('Hello World!');
 });
