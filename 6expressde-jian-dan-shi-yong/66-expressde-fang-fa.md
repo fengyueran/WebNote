@@ -82,5 +82,5 @@ response.redirect(301, "http://www.example.com");
 2）response.sendFile方法
 response.sendFile方法用于发送文件。
 ```
-response.sendFile("/public/images/flow.png");
+response.sendFile(path.join(__dirname,"public/images/flow.png"));
 ```
