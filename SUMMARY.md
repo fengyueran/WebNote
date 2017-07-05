@@ -40,4 +40,5 @@
   * [6.4 基本路由](6expressde-jian-dan-shi-yong/64-ji-ben-lu-you.md)
   * [6.5 运行原理](6expressde-jian-dan-shi-yong/65-yun-xing-yuan-li.md)
   * [6.6 Express的方法](6expressde-jian-dan-shi-yong/66-expressde-fang-fa.md)
+  * [6.7 项目开发实例](6expressde-jian-dan-shi-yong/67-xiang-mu-kai-fa-shi-li.md)
 
