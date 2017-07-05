@@ -61,3 +61,11 @@ app.get(/^\/commits\/(\w+)(?:\.\.(\w+))?$/, function(req, res){
   res.send('commit range ' + from + '..' + to);
 });
 ```
+
+**set方法**
+set方法用于指定变量的值。
+```
+app.set("views", __dirname + "/views");
+
+app.set("view engine", "jade");
+```
