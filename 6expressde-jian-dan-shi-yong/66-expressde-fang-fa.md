@@ -92,3 +92,35 @@ app.get("/", function(request, response) {
 });
 ```
 上面代码使用render方法，将message变量传入index模板，渲染成HTML网页。
+
+**requst对象**
+
+1）request.ip
+
+request.ip属性用于获得HTTP请求的IP地址。
+2）request.files
+
+request.files用于获取上传的文件。
+
+**搭建HTTPs服务器**
+使用Express搭建HTTPs加密服务器，也很简单。
+```
+var fs = require('fs');
+var options = {
+  key: fs.readFileSync('E:/ssl/myserver.key'),
+  cert: fs.readFileSync('E:/ssl/myserver.crt'),
+  passphrase: '1234'
+};
+
+var https = require('https');
+var express = require('express');
+var app = express();
+
+app.get('/', function(req, res){
+  res.send('Hello World Expressjs');
+});
+
+var server = https.createServer(options, app);
+server.listen(8084);
+console.log('Server is running on port 8084');
+```
