@@ -54,3 +54,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 ```
 app.listen(app.get('port'));
 ```
+这时，运行下面的命令，就可以在浏览器访问http://localhost:8000。
+```
+node index.js
+```
+网页提示“Cannot GET /”，表示没有为网站的根路径指定可以显示的内容。所以，下一步就是配置路由。
