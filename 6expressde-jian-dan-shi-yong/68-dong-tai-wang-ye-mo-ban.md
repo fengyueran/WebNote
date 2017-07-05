@@ -168,4 +168,8 @@ node index.js
 ```
 app.use(express.static('public'));
 ```
-
+上面代码在文件app.js之中，指定静态文件存放的目录是public。于是，当浏览器发出非HTML文件请求时，服务器端就到public目录寻找这个文件。比如，浏览器发出如下的样式表请求：
+```
+<link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+```
+服务器端就到public/bootstrap/css/目录中寻找bootstrap.css文件。
