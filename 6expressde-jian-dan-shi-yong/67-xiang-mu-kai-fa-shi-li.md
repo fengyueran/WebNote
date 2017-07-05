@@ -117,3 +117,29 @@ exports.index = function (req, res){
 var api = require('./routes/api');
 app.get('/api', api.index);
 ```
+现在访问时，就会显示与上一次同样的结果。
+
+如果只向浏览器发送简单的文本信息，上面的方法已经够用；但是如果要向浏览器发送复杂的内容，还是应该使用网页模板。
+
+**静态网页模板**
+在项目目录之中，建立一个子目录views，用于存放网页模板。
+
+假定这个项目有三个路径：根路径（/）、自我介绍（/about）和文章（/article）。那么，app.js可以这样写：
+```
+var express = require('express');
+var app = express();
+ 
+app.get('/', function(req, res) {
+   res.sendfile('./views/index.html');
+});
+ 
+app.get('/about', function(req, res) {
+   res.sendfile('./views/about.html');
+});
+ 
+app.get('/article', function(req, res) {
+   res.sendfile('./views/article.html');
+});
+ 
+app.listen(8000);
+```
