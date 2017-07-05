@@ -98,3 +98,26 @@ Published: {{blog.published}}
  
 {{blog.body}}
 ```
+可以看到，上面三个模板文件都只有网页主体。因为网页布局是共享的，所以布局的部分可以单独新建一个文件layout.html。
+```
+<!-- views/layout.html文件 -->
+
+<html>
+ 
+<head>
+   <title>{{title}}</title>
+</head>
+ 
+<body>
+ 
+	{{{body}}}
+ 
+   <footer>
+      <p>
+         <a href="/">首页</a> - <a href="/about">自我介绍</a>
+      </p>
+   </footer>
+    
+</body>
+</html>
+```
