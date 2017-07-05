@@ -62,5 +62,7 @@ app.use(function(request, response) {
   response.end("Hello world!\n");
 });
 
-http.createServer(app).listen(8000);
+app.listen(8000,function(){
+   console.log('Example app listening on port 8000.');
+});
 ```
