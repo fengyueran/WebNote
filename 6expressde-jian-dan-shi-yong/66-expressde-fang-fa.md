@@ -31,3 +31,8 @@ app.listen(8000,function(){
 除了get方法以外，Express还提供post、put、delete方法，即HTTP动词都是Express的方法。
 
 这些方法的第一个参数，都是请求的路径。除了绝对匹配以外，Express允许模式匹配。
+```
+app.get("/hello/:who", function(req, res) {
+  res.end("Hello, " + req.params.who + ".");
+});
+```
