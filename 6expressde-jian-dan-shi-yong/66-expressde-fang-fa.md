@@ -84,3 +84,11 @@ response.sendFile方法用于发送文件。
 ```
 response.sendFile(path.join(__dirname,"public/images/flow.png"));
 ```
+3）response.render方法
+response.render方法用于渲染网页模板。
+```
+app.get("/", function(request, response) {
+  response.render("index", { message: "Hello World" });
+});
+```
+
