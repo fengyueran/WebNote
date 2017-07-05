@@ -69,3 +69,36 @@ app.listen(8000,function(){
 上面代码使用app.use方法，注册了两个中间件。收到HTTP请求后，先调用第一个中间件，在控制台输出一行信息，然后通过next方法，将执行权传给第二个中间件，输出HTTP回应。由于第二个中间件没有调用next方法，所以request对象就不再向后传递了。
 
 use方法内部可以对访问路径进行判断，据此就能实现简单的路由，根据不同的请求网址，返回不同的网页内容。
+```
+var express = require("express");
+var http = require("http");
+
+var app = express();
+
+app.use(function(request, response, next) {
+  if (request.url == "/") {
+    response.writeHead(200, { "Content-Type": "text/plain" });
+    response.end("Welcome to the homepage!\n");
+  } else {
+    next();
+  }
+});
+
+app.use(function(request, response, next) {
+  if (request.url == "/about") {
+    response.writeHead(200, { "Content-Type": "text/plain" });
+  } else {
+    next();
+  }
+});
+
+app.use(function(request, response) {
+  response.writeHead(404, { "Content-Type": "text/plain" });
+  response.end("404 error!\n");
+});
+
+app.listen(8000,function(){
+   console.log('Example app listening on port 8000.');
+});
+
+```
