@@ -36,3 +36,28 @@ app.get("/hello/:who", function(req, res) {
   res.end("Hello, " + req.params.who + ".");
 });
 ```
+上面代码将匹配“/hello/alice”网址，网址中的alice将被捕获，作为req.params.who属性的值。需要注意的是，捕获后需要对网址进行检查，过滤不安全字符，上面的写法只是为了演示，生产中不应这样直接使用用户提供的值。
+
+如果在模式参数后面加上问号，表示该参数可选。
+```
+app.get('/hello/:who?',function(req,res) {
+	if(req.params.id) {
+    	res.end("Hello, " + req.params.who + ".");
+	}
+    else {
+    	res.send("Hello, Guest.");
+	}
+});
+```
+下面是一些更复杂的模式匹配的例子。
+```
+app.get('/forum/:fid/thread/:tid', middleware)
+
+// 匹配/commits/71dbb9c
+// 或/commits/71dbb9c..4c084f9这样的git格式的网址
+app.get(/^\/commits\/(\w+)(?:\.\.(\w+))?$/, function(req, res){
+  var from = req.params[0];
+  var to = req.params[1] || 'HEAD';
+  res.send('commit range ' + from + '..' + to);
+});
+```
