@@ -65,3 +65,4 @@ router.get('/hello/:name', function(req, res) {
 	res.send('hello ' + req.name + '!');
 });
 ```
+上面代码中，get方法为访问路径指定了name参数，param方法则是对name参数进行处理。注意，param方法必须放在HTTP动词方法之前。
