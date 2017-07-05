@@ -87,3 +87,14 @@ exports.getBlogEntry = function (id){
  
 <p>正文</p>
 ```
+模板文件article.html。
+```
+<!-- views/article.html文件 -->
+
+<h1>{{blog.title}}</h1>
+Published: {{blog.published}}
+ 
+<p/>
+ 
+{{blog.body}}
+```
