@@ -103,7 +103,7 @@ $ npm run build
 
 **3.babel-node**
 babel-cli工具自带一个babel-node命令，提供一个支持ES6的REPL环境。它支持Node的REPL环境的所有功能，而且可以直接运行ES6代码。
-它不用单独安装，而是随babel-cli一起安装。然后，执行babel-node就进入PEPL环境,且必须创建.babelrc让规则生效。
+它不用单独安装，而是随babel-cli一起安装。然后，执行babel-node就进入PEPL环境,babel必须创建.babelrc让规则生效。
 ```
 $ babel-node
 > (x => x * 2)(1)
