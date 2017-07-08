@@ -43,5 +43,6 @@
   * [6.7 项目开发实例](6expressde-jian-dan-shi-yong/67-xiang-mu-kai-fa-shi-li.md)
   * [6.8 动态网页模板](6expressde-jian-dan-shi-yong/68-dong-tai-wang-ye-mo-ban.md)
   * [6.9 Express.Router](6expressde-jian-dan-shi-yong/69-expressrouter.md)
-  * [6.10 上传文件](6expressde-jian-dan-shi-yong/610-shang-chuan-wen-jian.md)
+  * [6.10 上传文件实例](6expressde-jian-dan-shi-yong/610-shang-chuan-wen-jian.md)
+    * [6.10.1 准备工作](6expressde-jian-dan-shi-yong/610-shang-chuan-wen-jian/6101-zhun-bei-gong-zuo.md)
 
