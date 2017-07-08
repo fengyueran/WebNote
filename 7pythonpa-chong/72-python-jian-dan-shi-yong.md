@@ -50,3 +50,8 @@ mydict["c"] = 5
 print mydict['c']
 print mydict
 ```
+**import**
+```
+import random
+print random.randint(0,10)
+```
