@@ -90,3 +90,9 @@ app.use(webpackDevMiddleware(compiler, {
 }));
 app.use(webpackHotMiddleware(compiler));
 ```
+
+**引入css**
+在入口文件中直接用css，就可以为整个项目加载所有的CSS：
+```
+import '../public/stylesheets/style.css'
+```
