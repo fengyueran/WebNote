@@ -52,6 +52,7 @@ print result
 **XPath实例测试**
 
 (1) 获取所有的 `<li>` 标签
+
 ```
 print type(html)
 result = html.xpath('//li')
