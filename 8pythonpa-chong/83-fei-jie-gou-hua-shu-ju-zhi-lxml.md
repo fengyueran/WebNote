@@ -82,24 +82,35 @@ Element类型是一种灵活的容器对象，用于在内存中存储结构化�
 　　2. attrib：dictionary对象，表示附有的属性。
 　　3. text：string对象，表示element的内容。
 　　4. tail：string对象，表示element闭合之后的尾迹。
-实例
 
+实例
+```
 <tag attrib1=1>text</tag>tail
 1     2        3         4
+```
+```
 result[0].tag
 result[0].text
 result[0].tail
 result[0].attrib
-（2）获取 <li> 标签的所有 class
+```
+(2) 获取`<li>` 标签的所有 class
+```
 html.xpath('//li/@class')
+```
 运行结果
-
+```
 ['item-0', 'item-1', 'item-inactive', 'item-1', 'item-0']
-（3）获取 <li> 标签下属性 href 为 link1.html 的 <a> 标签
-html.xpath('//li/a[@href="link1.html"]')
-运行结果
+```
+(3) 获取 `<li>` 标签下属性 href 为 link1.html 的 `<a>` 标签
 
+```
+html.xpath('//li/a[@href="link1.html"]')
+```
+运行结果
+```
 [<Element a at 0x10ffaae18>]
+```
 （4）获取 <li> 标签下的所有 <span> 标签
 注意这么写是不对的
 html.xpath('//li/span')
