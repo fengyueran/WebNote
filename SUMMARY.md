@@ -46,5 +46,6 @@
   * [6.10 上传文件实例](6expressde-jian-dan-shi-yong/610-shang-chuan-wen-jian.md)
     * [6.10.1 准备工作](6expressde-jian-dan-shi-yong/610-shang-chuan-wen-jian/6101-zhun-bei-gong-zuo.md)
     * [6.10.2 上传](6expressde-jian-dan-shi-yong/610-shang-chuan-wen-jian/6102.md)
-* [7.python爬虫](7pythonpa-chong.md)
+* [7.python基础教程](7pythonpa-chong.md)
+  * [7.1 常用命令](7pythonpa-chong/71-chang-yong-ming-ling.md)
 
