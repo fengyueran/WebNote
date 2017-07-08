@@ -212,34 +212,54 @@ Xpath表达式：
   //div[span[text()='current note']]/descendant::div/span[text()='123']
 
   //div[span[text()='current note']]//div/span[text()='123']          两个表达的意思一样
+```
+
 11.following pre
+
+```
 https://www.baidu.com/s?wd=xpath&pn=10&oq=xpath&ie=utf-8&rsv_idx=1&rsv_pq=df0399f30003691c&rsv_t=7dccXo734hMJVeb6AVGfA3434tA9U%2FXQST0DrOW%2BM8GijQ8m5rVN2R4J3gU
   //span[@class="fk fk_cur"]/../following::a       往下的所有a
 
   //span[@class="fk fk_cur"]/../preceding::a[1]    往上的所有a
 ```
-xpath提取多个标签下的text
+**xpath提取多个标签下的text**
 
 在写爬虫的时候，经常会使用xpath进行数据的提取，对于如下的代码：
+```
 <div id="test1">大家好！</div>
+```
 使用xpath提取是非常方便的。假设网页的源代码在selector中：
+```
 data = selector.xpath('//div[@id="test1"]/text()').extract()[0]
+```
 就可以把“大家好！”提取到data变量中去。
 然而如果遇到下面这段代码呢？
+```
 <div id="test2">美女，<font color=red>你的微信是多少？</font><div>
+```
 如果使用：
+```
 data = selector.xpath('//div[@id="test2"]/text()').extract()[0]
+```
 只能提取到“美女，”；
 如果使用：
+```
 data = selector.xpath('//div[@id="test2"]/font/text()').extract()[0]
+```
+
 又只能提取到“你的微信是多少？”
 可是我本意是想把“美女，你的微信是多少？”这一整个句子提取出来。
+```
 <div id="test3">我左青龙，<span id="tiger">右白虎，<ul>上朱雀，<li>下玄武。</li></ul>老牛在当中，</span>龙头在胸口。<div>
+```
 而且内部的标签还不固定，如果我有一百段这样类似的html代码，又如何使用xpath表达式，以最快最方便的方式提取出来？
+
 使用xpath的string(.)
 以第三段代码为例：
+```
 data = selector.xpath('//div[@id="test3"]')
 info = data.xpath('string(.)').extract()[0]
+```
 这样，就可以把“我左青龙，右白虎，上朱雀，下玄武。老牛在当中，龙头在胸口”整个句子提取出来，赋值给info变量。
 
 
