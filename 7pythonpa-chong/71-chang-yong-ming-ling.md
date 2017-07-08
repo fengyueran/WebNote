@@ -7,7 +7,7 @@ python --version
 ```
 python
 ```
-**进入python脚本：**
+**运行python脚本：**
 ```
  python hello.py
  ```
