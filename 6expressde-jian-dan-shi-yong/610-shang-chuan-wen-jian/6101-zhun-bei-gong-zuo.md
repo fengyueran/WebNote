@@ -86,4 +86,5 @@ app.use(webpackDevMiddleware(compiler, {
         colors: true
     }
 }));
+app.use(webpackHotMiddleware(compiler));
 ```
