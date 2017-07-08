@@ -50,6 +50,7 @@ print result
 不仅补全了 li 标签，还添加了 body，html 标签。
 
 **XPath实例测试**
+
 (1) 获取所有的 `<li>` 标签
 ```
 print type(html)
