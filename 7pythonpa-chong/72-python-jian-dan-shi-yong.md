@@ -50,7 +50,7 @@ mydict["c"] = 5
 print mydict['c']
 print mydict
 ```
-**import**
+**import模块引入**
 ```
 import random
 print random.randint(0,10)
