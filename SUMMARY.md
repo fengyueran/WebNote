@@ -45,5 +45,5 @@
   * [6.9 Express.Router](6expressde-jian-dan-shi-yong/69-expressrouter.md)
   * [6.10 上传文件实例](6expressde-jian-dan-shi-yong/610-shang-chuan-wen-jian.md)
     * [6.10.1 准备工作](6expressde-jian-dan-shi-yong/610-shang-chuan-wen-jian/6101-zhun-bei-gong-zuo.md)
-    * [6.10.2 上传的路由](6expressde-jian-dan-shi-yong/610-shang-chuan-wen-jian/6102.md)
+    * [6.10.2 上传](6expressde-jian-dan-shi-yong/610-shang-chuan-wen-jian/6102.md)
 
