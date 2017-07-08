@@ -24,5 +24,5 @@ python
 
 **编码声明：**
 ```
-#coding:utf-8
+#coding:utf-8//输入汉字
 ```
