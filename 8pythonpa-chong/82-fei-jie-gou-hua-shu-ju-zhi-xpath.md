@@ -81,40 +81,37 @@ XPath 通配符可用来选取未知的 XML 元素。
 
 - 测试使用的XML
 
- ```
+```
  <Root>
-
 <Person ID="1001" >
-
 <Name lang="zh-cn" >张城斌</Name>
-
 <Email xmlns="www.quicklearn.cn" > cbcye@live.com </Email>
-
 <Blog>http://cbcye.cnblogs.com</Blog>
-
 </Person>
 
-<Person ID="1002" >
-
+<Person ID="1002" 
 <Name lang="en" >Gary Zhang</Name>
-
 <Email xmlns="www.quicklearn.cn" > GaryZhang@cbcye.com</Email>
 
 <Blog>http://www.quicklearn.cn</Blog>
-
 </Person>
-
 </Root>
 ```
-查询所有Blog节点值中带有 cn 字符串的Person节点
+1. 查询所有Blog节点值中带有 cn 字符串的Person节点
 Xpath表达式：
+```
 /Root//Person[contains(Blog,'cn')]
-2.查询所有Blog节点值中带有 cn 字符串并且属性ID值中有01的Person节点
+```
+2. 查询所有Blog节点值中带有 cn 字符串并且属性ID值中有01的Person节点
 Xpath表达式：
+```
 /Root//Person[contains(Blog,'cn') and contains(@ID,'01')]
-学习笔记
+```
 
-1.依靠自己的属性，文本定位
+**学习笔记**
+
+1. 依靠自己的属性，文本定位
+```
    //td[text()='Data Import']
 
    //div[contains(@class,'cux-rightArrowIcon-on')]
@@ -128,32 +125,44 @@ Xpath表达式：
     //span[@id='bruce1' or text()='bruce2']  找出多个
 
     //span[text()='bruce1' and text()='bruce2']  找出多个
-2.依靠父节点定位
-  //div[@class='x-grid-col-name x-grid-cell-inner']/div
+```
+2. 依靠父节点定位
 
+```
+  //div[@class='x-grid-col-name x-grid-cell-inner']/div
   //div[@id='dynamicGridTestInstanceformclearuxformdiv']/div
 
   //div[@id='test']/input
+```
 3.依靠子节点定位
+
+```
   //div[div[@id='navigation']]
 
   //div[div[@name='listType']]
 
   //div[p[@name='testname']]
+```
 4.混合型
-  //div[div[@name='listType']]//img
+ 
+``` //div[div[@name='listType']]//img
 
   //td[a//font[contains(text(),'seleleium2从零开始 视屏')]]//input[@type='checkbox']
+```
 5.进阶部分
-   //input[@id='123']/following-sibling::input   找下一个兄弟节点
+
+```
+//input[@id='123']/following-sibling::input   找下一个兄弟节点
 
    //input[@id='123']/preceding-sibling::span    上一个兄弟节点
 
    //input[starts-with(@id,'123')]               以什么开头
 
    //span[not(contains(text(),'xpath')）]        不包含xpath字段的span
+ ```
 6.索引
 
+```
   //div/input[2]
 
   //div[@id='position']/span[3]
@@ -167,7 +176,11 @@ Xpath表达式：
   //div[@id='position']/span[last()]
 
   //div[@id='position']/span[last()-1]
+```
+
 7.substring 截取判断
+
+```
 <div data-for="result" id="swfEveryCookieWrap"></div>
   //*[substring(@id,4,5)='Every']/@id  截取该属性 定位3,取长度5的字符 
 
@@ -176,16 +189,26 @@ Xpath表达式：
   //*[substring-before(@id,'C')='swfEvery']/@id   属性 'C'之前的字符匹配
 
   //*[substring-after(@id,'C')='ookieWrap']/@id   属性'C之后的字符匹配
+```
+
 8.通配符*
+
+```
   //span[@*='bruce']
 
   //*[@name='bruce']
+```
 9.轴
+
+```
 
   //div[span[text()='+++current node']]/parent::div    找父节点
 
   //div[span[text()='+++current node']]/ancestor::div    找祖先节点
+```
 10.孙子节点
+
+```
   //div[span[text()='current note']]/descendant::div/span[text()='123']
 
   //div[span[text()='current note']]//div/span[text()='123']          两个表达的意思一样
@@ -194,6 +217,7 @@ https://www.baidu.com/s?wd=xpath&pn=10&oq=xpath&ie=utf-8&rsv_idx=1&rsv_pq=df0399
   //span[@class="fk fk_cur"]/../following::a       往下的所有a
 
   //span[@class="fk fk_cur"]/../preceding::a[1]    往上的所有a
+```
 xpath提取多个标签下的text
 
 在写爬虫的时候，经常会使用xpath进行数据的提取，对于如下的代码：
