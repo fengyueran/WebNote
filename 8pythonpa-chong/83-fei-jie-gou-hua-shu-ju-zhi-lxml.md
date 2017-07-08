@@ -61,12 +61,13 @@ print type(result)
 print type(result[0])
 ```
 运行结果
-
+```
 <type 'lxml.etree._ElementTree'>
 [<Element li at 0x1014e0e18>, <Element li at 0x1014e0ef0>, <Element li at 0x1014e0f38>, <Element li at 0x1014e0f80>, <Element li at 0x1014e0fc8>]
 5
 <type 'list'>
 <type 'lxml.etree._Element'>
+```
 可见，每个元素都是 Element 类型;是一个个的标签元素，类似现在的实例
 <Element li at 0x1014e0e18> Element类型代表的就是
 <li class="item-0"><a href="link1.html">first item</a></li>
