@@ -21,3 +21,12 @@ def myFunction(a,b):
 if __name__=="__main__":
     myFunction(1,2)
 ```
+
+**if语句**
+```
+a = 3
+if a == 3:
+    print "it is three"
+else:
+    print "it is not three"
+```
