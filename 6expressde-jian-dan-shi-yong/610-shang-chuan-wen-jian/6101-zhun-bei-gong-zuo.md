@@ -75,7 +75,7 @@ export default {
 };
 
 ```
-配置server热更新中间件
+**配置server热更新中间件**
 ```
 // attach to the compiler & the server
 app.use(webpackDevMiddleware(compiler, {

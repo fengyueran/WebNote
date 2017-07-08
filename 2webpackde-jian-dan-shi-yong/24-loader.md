@@ -128,6 +128,14 @@ webpack --module-bind jade --module-bind 'css=style!css'
  编译后缀名为 .js 或者 .jsx 的文件，这样你就可以在这两种  
  类型的文件中自由使用 JSX 和 ES6 了。
 
+-  css-loader
+css-loader会遍历 CSS 文件，然后找到 url() 表达式然后处理他们
+
+- style-loader
+会把原来的 CSS 代码插入页面中的一个 style 标签中。
+
+
+
 [demo地址][1]
 
 
