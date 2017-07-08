@@ -30,3 +30,9 @@ if a == 3:
 else:
     print "it is not three"
 ```
+
+**数组**
+```
+a = [1, 2, "hello", 3]
+print a
+```
