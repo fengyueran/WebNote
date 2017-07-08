@@ -147,15 +147,17 @@ result = html.xpath('//*[@class="bold"]')
 print result[0].tag
 ```
 运行结果
-
+```
 span
-开始练习
+```
 
-通过以上实例的练习，相信大家对 XPath 的基本用法有了基本的了解
-实战项目
+
+**实战项目**
 
 以腾讯招聘网站为例
-http://hr.tencent.com/position.php?&start=10
+`
+http://hr.tencent.com/position.php?&start=10`
+```
 from lxml import etree
 import urllib2
 import urllib
@@ -191,7 +193,7 @@ for site in result:
     print line
     output.write(line.encode('utf-8'))
 output.close()
-
+```
 
 
 [1]:http://lxml.de/index.html
