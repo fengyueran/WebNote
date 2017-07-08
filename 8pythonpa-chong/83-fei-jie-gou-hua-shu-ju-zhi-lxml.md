@@ -50,8 +50,7 @@ print result
 不仅补全了 li 标签，还添加了 body，html 标签。
 
 **XPath实例测试**
-
-（1）获取所有的 `<li>` 标签
+(1) 获取所有的 `<li>` 标签
 ```
 print type(html)
 result = html.xpath('//li')
@@ -73,7 +72,7 @@ print type(result[0])
 <Element li at 0x1014e0e18> Element类型代表的就是
 <li class="item-0"><a href="link1.html">first item</a></li>
 ```
-［注意］
+[注意］
 
 Element类型是一种灵活的容器对象，用于在内存中存储结构化数据。
 每个element对象都具有以下属性：
