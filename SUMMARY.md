@@ -55,4 +55,5 @@
 * [8.python爬虫](8pythonpa-chong.md)
   * [8.1 页面解析之数据提取](8pythonpa-chong/81-ye-mian-jie-xi-zhi-shu-ju-ti-qu.md)
   * [8.2 非结构化数据之XPath](8pythonpa-chong/82-fei-jie-gou-hua-shu-ju-zhi-xpath.md)
+  * [8.3 非结构化数据之lxml](8pythonpa-chong/83-fei-jie-gou-hua-shu-ju-zhi-lxml.md)
 
