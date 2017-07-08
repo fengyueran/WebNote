@@ -69,8 +69,10 @@ print type(result[0])
 <type 'lxml.etree._Element'>
 ```
 可见，每个元素都是 Element 类型;是一个个的标签元素，类似现在的实例
+```
 <Element li at 0x1014e0e18> Element类型代表的就是
 <li class="item-0"><a href="link1.html">first item</a></li>
+```
 ［注意］
 
 Element类型是一种灵活的容器对象，用于在内存中存储结构化数据。
