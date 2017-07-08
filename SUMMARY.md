@@ -52,4 +52,6 @@
   * [7.3 字符串操作](7pythonpa-chong/73-zi-fu-chuan-cao-zuo.md)
   * 7.4 python中的数组
   * 7.5 字典
+* [8.python爬虫](8pythonpa-chong.md)
+  * [8.1 页面解析之数据提取](8pythonpa-chong/81-ye-mian-jie-xi-zhi-shu-ju-ti-qu.md)
 
