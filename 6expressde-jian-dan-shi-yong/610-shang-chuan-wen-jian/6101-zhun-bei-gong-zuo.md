@@ -77,7 +77,6 @@ export default {
 };
 
 ```
-aa
 **配置server热更新中间件**
 ```
 // attach to the compiler & the server
