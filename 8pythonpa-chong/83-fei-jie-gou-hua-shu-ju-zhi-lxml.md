@@ -111,27 +111,41 @@ html.xpath('//li/a[@href="link1.html"]')
 ```
 [<Element a at 0x10ffaae18>]
 ```
-（4）获取 <li> 标签下的所有 <span> 标签
+(4) 获取 `<li>` 标签下的所有 `<span>` 标签
 注意这么写是不对的
+```
 html.xpath('//li/span')
-因为 / 是用来获取子元素的，而 <span> 并不是 <li> 的子元素，所以，要用双斜杠
+```
+因为 / 是用来获取子元素的，而 `<span>` 并不是 `<li>` 的子元素，所以，要用双斜杠
+```
 html.xpath('//li//span')
+```
 运行结果
-
+```
 [<Element span at 0x10d698e18>]
-（5）获取 <li> 标签下的所有 class，不包括 <li>
+```
+(5) 获取 `<li>` 标签下的所有 class，不包括`<li>`
+
+```
 html.xpath('//li/a//@class')
+```
 运行结果
-
+```
 ['blod']
-（6）获取最后一个 <li> 的<a> 的 href
+```
+(6) 获取最后一个`<li>` 的`<a>` 的 href
+```
 html.xpath('//li[last()]/a/@href')
+```
 运行结果
-
+```
 ['link5.html']
-（7）获取 class 为 bold 的标签名
+```
+(7) 获取 class 为 bold 的标签名
+```
 result = html.xpath('//*[@class="bold"]')
 print result[0].tag
+```
 运行结果
 
 span
