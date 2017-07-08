@@ -36,3 +36,9 @@ else:
 a = [1, 2, "hello", 3]
 print a
 ```
+
+**for循环**
+```
+for i in a:
+    print i
+```
