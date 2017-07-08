@@ -80,8 +80,9 @@ XPath 通配符可用来选取未知的 XML 元素。
 解决方法 使用xpath的匹配功能， //input[contains(@id,'nt')]
 
 - 测试使用的XML
+
  ```
-<Root>
+ <Root>
 
 <Person ID="1001" >
 
