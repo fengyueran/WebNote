@@ -51,4 +51,5 @@
   * [7.2 python 简单使用](7pythonpa-chong/72-python-jian-dan-shi-yong.md)
   * [7.3 字符串操作](7pythonpa-chong/73-zi-fu-chuan-cao-zuo.md)
   * 7.4 python中的数组
+  * 7.5 字典
 

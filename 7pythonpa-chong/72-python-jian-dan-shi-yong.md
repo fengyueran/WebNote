@@ -42,3 +42,11 @@ print a
 for i in a:
     print i
 ```
+
+**字典：**
+```
+mydict = { "a":3, "b":4 }
+mydict["c"] = 5
+print mydict['c']
+print mydict
+```
