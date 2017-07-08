@@ -35,6 +35,7 @@ result = etree.tostring(html)
 print result
 ```
 所以输出结果是这样的
+```
 <html><body><div>
   <ul>
        <li class="item-0"><a href="link1.html">first item</a></li>
@@ -45,16 +46,20 @@ print result
    </li></ul>
 </div>
 </body></html>
+```
 不仅补全了 li 标签，还添加了 body，html 标签。
-XPath实例测试
 
-（1）获取所有的 <li> 标签
+**XPath实例测试**
+
+（1）获取所有的 `<li>` 标签
+```
 print type(html)
 result = html.xpath('//li')
 print result
 print len(result)
 print type(result)
 print type(result[0])
+```
 运行结果
 
 <type 'lxml.etree._ElementTree'>
