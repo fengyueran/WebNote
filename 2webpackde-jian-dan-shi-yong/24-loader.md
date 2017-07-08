@@ -130,7 +130,14 @@ webpack --module-bind jade --module-bind 'css=style!css'
 
 -  css-loader
 css-loader会遍历 CSS 文件，然后找到 url() 表达式然后处理他们
-
+```
+ <link rel="stylesheet" href="/stylesheets/style.css" type="text/css" />
+```
+转变为类似
+```
+<link rel="stylesheet" href="http://localhost:3000/public/stylesheets/style.css" type="text/css" />
+```
+```
 - style-loader
 会把原来的 CSS 代码插入页面中的一个 style 标签中。
 
