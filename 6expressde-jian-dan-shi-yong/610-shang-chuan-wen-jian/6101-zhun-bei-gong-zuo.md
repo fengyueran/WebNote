@@ -75,3 +75,15 @@ export default {
 };
 
 ```
+配置server热更新中间件
+```
+// attach to the compiler & the server
+app.use(webpackDevMiddleware(compiler, {
+    // public path should be the same with webpack config
+    publicPath: webpackDevConfig.output.publicPath,
+    noInfo: true,
+    stats: {
+        colors: true
+    }
+}));
+```
