@@ -10,6 +10,7 @@ https://tieba.baidu.com/f?ie=utf-8&kw=%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB&fr=se
 **中文字符按什么编码格式进行转化成十六进制呢？**
 **utf-8、gb2312、gbk urlencode编码**
 - utf-8与utf-8 urlencode区别
+
 ```
 import urllib
 
@@ -22,6 +23,7 @@ urllib.quote(country.encode('utf-8'))
 '%E4%B8%AD%E5%9B%BD'
 ```
 - gb2312与gb2312 urlencode区别
+
 ```
 import urllib
 
@@ -33,10 +35,11 @@ country.encode('gb2312')
 urllib.quote(country.encode('gb2312'))
 '%D6%D0%B9%FA'
 ```
-案例
+**案例**
 
 模拟出 拉勾网 如下url地址：
 http://www.lagou.com/jobs/list_Python?px=default&city=%E5%8C%97%E4%BA%AC&district=%E6%9C%9D%E9%98%B3%E5%8C%BA&bizArea=%E6%9C%9B%E4%BA%AC#filterBox
+```
 # -*- coding: utf-8 -*-
 import urllib
 import chardet
@@ -59,7 +62,9 @@ city=%E5%8C%97%E4%BA%AC&bizArea=%E6%9C%9B%E4%BA%AC&district=%E6%9C%9B%E4%BA%AC
 
 print 'http://www.lagou.com/jobs/list_Python?px=default&'+urllib.urlencode(query)+'#filterBox'
 http://www.lagou.com/jobs/list_Python?px=default&city=%E5%8C%97%E4%BA%AC&bizArea=%E6%9C%9B%E4%BA%AC&district=%E6%9C%9B%E4%BA%AC#filterBox
+```
 模拟出 阿里巴巴 如下url地址：
+```
 https://s.1688.com/selloffer/offer_search.htm?keywords=%CA%D6%BB%FA%BC%B0%C5%E4%BC%FE%CA%D0%B3%A1
 
 
@@ -79,3 +84,4 @@ keywords=%CA%D6%BB%FA%BC%B0%C5%E4%BC%FE%CA%D0%B3%A1
 
 print 'https://s.1688.com/selloffer/offer_search.htm?'+urllib.urlencode(query)
 https://s.1688.com/selloffer/offer_search.htm?keywords=%CA%D6%BB%FA%BC%B0%C5%E4%BC%FE%CA%D0%B3%A1
+```
