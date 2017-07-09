@@ -8,12 +8,13 @@ Python 2.7中自带了JSON模块，直接import json就可以使用了。
 Json模块提供了四个功能：dumps、dump、loads、load,用于字符串 和 python数据类型间进行转换
 [Python操作json的标准api库参考][1]
 [在线JSON格式化代码][2]
-1. json.loads()
+
+**1. json.loads()**
 
 实现：json字符串 转化 python的类型，返回一个python的类型
 从json到python的类型转化对照如下：
-
-
+```
+![](/assets/8.6-1.png)
 import json
 
 a="[1,2,3,4]"
@@ -23,8 +24,9 @@ print json.loads(a)
 
 print json.loads(b) 
 {'k2': 2, 'k1': 1}
-案例
-
+```
+**案例**
+```
 import urllib2
 import json
 
@@ -36,12 +38,14 @@ print hjson.keys()
 print hjson['rating']
 print hjson['images']['large']
 print hjson['summary']
-2. json.dumps()
+```
+
+**2. json.dumps()**
 
 实现python类型转化为json字符串，返回一个str对象
 从python原始类型向json类型的转化对照如下：
-
-
+![](/assets/8.6-2.png)
+```
 import json
 a = [1,2,3,4]
 b ={"k1":1,"k2":2}
@@ -55,9 +59,11 @@ json.dumps(b)
 
 json.dumps(c)
 '[1, 2, 3, 4]'
-json.dumps 中的ensure_ascii 参数引起的中文编码问题
+```
+**json.dumps 中的ensure_ascii 参数引起的中文编码问题**
 
 如果Python Dict字典含有中文，json.dumps 序列化时对中文默认使用的ascii编码
+```
 import chardet
 import json
 
@@ -71,8 +77,10 @@ print json.dumps(b)
 
 chardet.detect(json.dumps(b))
 {'confidence': 1.0, 'encoding': 'ascii'}
+```
 '中国' 中的ascii 字符码，而不是真正的中文。
 想输出真正的中文需要指定ensure_ascii=False
+```
 json.dumps(b,ensure_ascii=False)
 '{"name": "\xe6\x88\x91"}'
 
@@ -81,18 +89,23 @@ print json.dumps(b,ensure_ascii=False)
 
 chardet.detect(json.dumps(b,ensure_ascii=False))
 {'confidence': 0.7525, 'encoding': 'utf-8'}
-3. json.dump()
+```
+**
+3. json.dump()**
 
 把Python类型 以 字符串的形式 写到文件中
+```
 import json
 a = [1,2,3,4]
 json.dump(a,open("digital.json","w"))
 b = {"name":"我"}
 json.dump(b,open("name.json","w"),ensure_ascii=False)
 json.dump(b,open("name2.json","w"),ensure_ascii=True)
-4. json.load()
+```
+**4. json.load()**
 
 读取 文件中json形式的字符串元素 转化成python类型
+```
 # -*- coding: utf-8 -*-
 import json
 number = json.load(open("digital.json"))
@@ -101,9 +114,11 @@ b = json.load(open("name.json"))
 print b
 b.keys()
 print b['name']
-实战项目
+```
+**实战项目**
 
 获取 lagou 城市表信息
+```
 import urllib2
 import json
 import chardet
@@ -137,38 +152,22 @@ print content
 
 fp.write(content)
 fp.close()
-输出：
+```
 
-
-
-JSONPath
+**JSONPath**
 
 JSON 信息抽取类库，从JSON文档中抽取指定信息的工具
 JSONPath与Xpath区别
 
 JsonPath 对于 JSON 来说，相当于 XPATH 对于XML。
-下载地址：
-https://pypi.python.org/pypi/jsonpath/
-安装方法：
-下载jsonpath，解压之后执行'python setup.py install'
-参考文档
 
-XPath	JSONPath	Result
-/store/book/author	$.store.book[*].author	the authors of all books in the store
-//author	$..author	all authors
-/store/*	$.store.*	all things in store, which are some books and a red bicycle.
-/store//price	$.store..price	the price of everything in the store.
-//book[3]	$..book[2]	the third book
-//book[last()]	$..book[(@.length-1)]
-$..book[-1:]	the last book in order.
-//book[position()<3]	$..book[0,1]
-$..book[:2]	the first two books
-//book[isbn]	$..book[?(@.isbn)]	filter all books with isbn number
-//book[price<10]	$..book[?(@.price<10)]	filter all books cheapier than 10
-//*	$..*	all Elements in XML document. All members of JSON structure.
-案例
+[参考文档][3]
+![](/assets/8.6-3.png)
+
+**案例**
 
 还是以 http://www.lagou.com/lbs/getAllCitySearchLabels.json 为例，获取所有城市
+```
 import jsonpath
 import urllib2
 import chardet
@@ -193,6 +192,7 @@ print content
 
 fp.write(content.encode('utf-8'))
 fp.close()
+```
 XML
 
 xmltodict模块让使用XML感觉跟操作JSON一样
@@ -263,4 +263,5 @@ XML
   
   [1]:https://docs.python.org/3/library/json.html
 [2]:http://tool.oschina.net/codeformat/json
+[3]:http://goessner.net/articles/JsonPath/
   
