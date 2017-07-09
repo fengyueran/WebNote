@@ -50,7 +50,7 @@
   * [7.1 python 环境](7pythonpa-chong/71-chang-yong-ming-ling.md)
   * [7.2 python 简单使用](7pythonpa-chong/72-python-jian-dan-shi-yong.md)
   * [7.3 字符串操作](7pythonpa-chong/73-zi-fu-chuan-cao-zuo.md)
-  * 7.4 python中的数组
+  * [7.4 python中的数组](7pythonpa-chong/74-pythonzhong-de-shu-zu.md)
   * 7.5 字典
 * [8.python爬虫](8pythonpa-chong.md)
   * [8.1 页面解析之数据提取](8pythonpa-chong/81-ye-mian-jie-xi-zhi-shu-ju-ti-qu.md)
