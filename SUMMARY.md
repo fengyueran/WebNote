@@ -58,4 +58,5 @@
   * [8.3 非结构化数据之lxml](8pythonpa-chong/83-fei-jie-gou-hua-shu-ju-zhi-lxml.md)
   * [8.4 非结构化数据之CSS Selector](8pythonpa-chong/84-fei-jie-gou-hua-shu-ju-zhi-css-selector.md)
   * [8.5 非结构化数据之正则表达式](8pythonpa-chong/1.md)
+  * [8.6 页面解析之结构化数据](8pythonpa-chong/86-ye-mian-jie-xi-zhi-jie-gou-hua-shu-ju.md)
 
