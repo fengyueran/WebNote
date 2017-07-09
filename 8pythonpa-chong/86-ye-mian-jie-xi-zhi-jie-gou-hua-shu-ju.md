@@ -193,13 +193,16 @@ print content
 fp.write(content.encode('utf-8'))
 fp.close()
 ```
-XML
+**XML**
 
 xmltodict模块让使用XML感觉跟操作JSON一样
 Python操作XML的第三方库参考：
 https://github.com/martinblech/xmltodict
 模块安装：
+```
 pip install xmltodict
+```
+```
 import xmltodict
 
 bookdict = xmltodict.parse("""
@@ -218,7 +221,9 @@ bookdict = xmltodict.parse("""
 print bookdict.keys()
 [u'bookstore']
 print json.dumps(bookdict,indent=4)
+```
 输出结果：
+```
 {
     "bookstore": {
         "book": [
@@ -239,24 +244,32 @@ print json.dumps(bookdict,indent=4)
         ]
     }
 }
-数据提取总结
+```
 
-HTML、XML
+**数据提取总结**
+
+- HTML、XML
+```
   XPath
   CSS选择器
   正则表达式
-JSON
-
+  ```
+- JSON
+```
   JSONPath
   转化成Python类型进行操作（json类）
-XML
-
+  ```
+- XML
+```
   转化成Python类型（xmltodict）
   XPath
   CSS选择器
   正则表达式
-其他（js、文本、电话号码、邮箱地址）
+  ```
+- 其他（js、文本、电话号码、邮箱地址）
+```
   正则表达式
+  ```
   
   
   
