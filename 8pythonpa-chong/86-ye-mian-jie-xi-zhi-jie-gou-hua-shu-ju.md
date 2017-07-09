@@ -39,6 +39,36 @@ print hjson['rating']
 print hjson['images']['large']
 print hjson['summary']
 ```
+**json.loads的时候出错->要注意要解码的Json字符的编码**
+1) 如果传入的字符串的编码是基于ASCII的，而不是UTF-8的话，需要指定字符编码参数cencoding
+对于：
+```
+dataDict = json.loads(dataJsonStr);
+```
+其中dataJsonStr是json字符串，如果其编码本身是非UTF-8的话，比如是GB2312的，那么上述代码，就会导致出错。改为对应的：
+```
+dataDict = json.loads(dataJsonStr, encoding="GB2312");
+```
+2) 如果要解析的字符串，本身的编码类型，不是基于ASCII的，那么，调用json.loads之前，需要先将对应字符串，转换为Unicode类型的 还是以上述的：
+```
+dataDict = json.loads(dataJsonStr, encoding="GB2312");
+```
+为例，即使你此处的字符串dataJsonStr，已经通过encoding指定了合适的编码，但是由于其中，包含了其他的编码的字符，比如我本身dataJsonStr是GB2312的字符，但是其中又包含了的一些日文字符，此时，json.loads还是会出错，因为此处的dataJsonStr不是以ASCII为基础的字符编码，所以，需要先去将dataJsonStr转换为Unicode，然后再调用json.loads，就可以了。
+代码如下：
+```
+dataJsonStrUni = dataJsonStr.decode("GB2312"); 
+dataDict = json.loads(dataJsonStrUni, encoding="GB2312");
+```
+**encode和decode区别**
+
+decode的作用是将其他编码的字符串转换成unicode编码
+```
+如str1.decode('gb2312')，表示将gb2312编码的字符串str1转换成unicode编码。 
+```
+encode的作用是将unicode编码转换成其他编码的字符串
+```
+如str2.encode('gb2312')，表示将unicode编码的字符串str2转换成gb2312编码。
+```
 
 **2. json.dumps()**
 
