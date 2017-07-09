@@ -60,7 +60,6 @@
   * [8.5 非结构化数据之正则表达式](8pythonpa-chong/1.md)
   * [8.6 页面解析之结构化数据](8pythonpa-chong/86-ye-mian-jie-xi-zhi-jie-gou-hua-shu-ju.md)
   * 8.7 爬虫实践篇
-    * 8.7.1 urlencode编码
-    * [8.7.1 抓取百度贴吧](8pythonpa-chong/871-zhua-qu-bai-du-tie-ba.md)
-
+    * [8.7.1 urlencode编码](8pythonpa-chong/871-urlencodebian-ma.md)
+    * [8.7.2 抓取百度贴吧](8pythonpa-chong/871-zhua-qu-bai-du-tie-ba.md)
 
