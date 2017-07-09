@@ -128,40 +128,56 @@ id名前加 #
 
   for title in soup.select('title'):
       print title.get_text()
-Tag
-```
+      ```
+      
+**Tag**
 
 Tag 是什么？通俗点讲就是 HTML 中的一个个标签，例如
+```
 <a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>
+```
+```
 print type(soup.select('a')[0])
+```
 输出：
-
+```
 bs4.element.Tag
+```
 对于 Tag，它有两个重要的属性，是 name 和 attrs，下面我们分别来感受一下
-name
-
+1. name
+```
  print soup.name
  print soup.select('a')[0].name
+ ```
 输出：
-
+```
  [document]
  'a'
+ ```
 soup 对象本身比较特殊，它的 name 即为 [document]，对于其他内部标签，输出的值便为标签本身的名称。
-attrs
+2.attrs
+```
  print soup.select('a')[0].attrs
+ ```
 输出：
-
+```
  {'href': 'http://example.com/elsie', 'class': ['sister'], 'id': 'link1'}
+ ```
 在这里，我们把 soup.select('a')[0] 标签的所有属性打印输出了出来，得到的类型是一个字典。
 如果我们想要单独获取某个属性，可以这样，例如我们获取它的 class 叫什么
+```
  print soup.select('a')[0].attrs['class']
+ ```
 输出：
-
+```
  ['sister']
-实战案例
+ ```
+ 
+**实战案例**
 
 我们还是以 腾讯招聘网站
 http://hr.tencent.com/position.php?&start=10#a
+```
 from bs4 import BeautifulSoup
 import urllib2
 import urllib
@@ -200,9 +216,8 @@ for site in result:
     output.write(line.encode('utf-8'))
 
 output.close()
-问题？
+```
 
-好，这就是另一种与 XPath 语法有异曲同工之妙的查找方法，觉得哪种更方便？
 
 
 
