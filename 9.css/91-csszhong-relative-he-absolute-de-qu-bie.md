@@ -1,0 +1,1 @@
+作为css的初学者，在进行页面布局时常常用到relative和absolute两个属性
