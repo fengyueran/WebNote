@@ -62,5 +62,5 @@
   * 8.7 爬虫实践篇
     * [8.7.1 urlencode编码](8pythonpa-chong/871-urlencodebian-ma.md)
     * [8.7.2 抓取百度贴吧](8pythonpa-chong/871-zhua-qu-bai-du-tie-ba.md)
-* 9. [Css]
+* [9.Css]
 
