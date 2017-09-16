@@ -138,14 +138,13 @@ $ nrm test
 $ nrm use sourceName
 
 10) 设置资源库
-
 ```
-npm config set registry "http://npm.hacknodejs.com/"
+ npm config set registry "http://npm.hacknodejs.com/"
 ```
 
 11) 安装第三方资源库
 ```
-npm --registry "http://npm.hacknodejs.com/" install underscore 
+不能npm --registry "http://npm.hacknodejs.com/" install underscore
 ```
 
 
