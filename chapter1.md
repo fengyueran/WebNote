@@ -29,7 +29,7 @@ $ npm install babel -g
 $ npm install babel@1.6.0
 ```
 
-2\) 卸载包 - npm uninstall packageName
+2) 卸载包 - npm uninstall packageName
 
 ```
 //卸载当前工程bebel
@@ -136,6 +136,18 @@ $ nrm test
   edunpm - Fetch Error
 //4.切换安装源
 $ nrm use sourceName
+
+10) 设置资源库
+```
+npm config set registry "http://npm.hacknodejs.com/"
+```
+11) 安装第三方资源库
+```
+npm --registry "http://npm.hacknodejs.com/" install underscore 
+```
+
+
+
 ```
 
 ##### 3.npm脚本
